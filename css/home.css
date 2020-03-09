@@ -1,0 +1,127 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {            
+    background-color:red;   
+    color:white;   
+    font-size: 20px;   
+    /*overflow-x: hidden;*/ 
+    font-family: 'Flamenco', cursive,Arial, Helvetica, sans-serif;   
+    padding: 0px;
+    }
+.background-image {
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../images/6.jpg");
+    background-color: #cccccc;    
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;           
+}
+
+header {       
+    color: white;
+}
+.clearfix:after{
+    content:".";
+    visibility: hidden ;
+    display: block; /*show content in 1 line*/
+    height: 0px;
+    clear: both;
+}
+.row{
+    max-width: 1180px; /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attrivute*/
+    margin: 0 auto; /*Aways in centre*/
+}
+.logo{
+    height: 70px;
+    width: auto;
+    float: left;
+    margin-top: 15px;
+}
+.main-nav{
+    float:right;
+    margin-top: 60px;
+}
+.main-nav li{
+    display:inline-block;
+    list-style:none; /*Remove bullets*/
+    margin-left: 40px;
+}
+
+.main-nav li a{
+    padding: 5px,0px;
+    color: #fff;
+    text-decoration: none; /*Remove underline from nchor tags*/
+    text-transform: uppercase;
+    font-size: 90%; 
+    font-weight: 100;
+}
+.main-nav li a:hover{
+    border-bottom: 2px solid violet;
+}
+
+.main-content{
+    width: 56%;;
+    position: obsolute;
+    /*border: 1px solid red;*/
+    top:50%;
+    left:50%;
+    transform: translate(10%,60%);
+    float: left;
+}       
+
+h1{
+    color: #fff;
+    font-size: 150%;
+    word-spacing: 5px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+.colorchange{
+    animation: colorchangeflying 1s infinite;
+}
+
+.btn{
+    display: inline-block;  
+    padding: 10px 30px;
+    font-weight: lighter;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full{
+    background-color: transparent;
+    color: #bf55ec;
+    margin-right: 15px;
+    border: 1px solid #bf55ec;
+}
+
+.btn-full:hover{
+    background-color: white;
+}
+.btn-nav{
+    background-color: transparent;
+    color:#fff;
+    border: 1px solid white;
+}
+.btn-nav:hover{
+    background-color: violet;
+}
+
+@keyframes colorchangeflying {
+    0%{color:red;}
+    25%{color:violet}
+    50%{color:white}
+    100%{color:purple}
+}
+marquee{
+ width: 100%;
+}

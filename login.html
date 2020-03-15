@@ -4,25 +4,57 @@
 <head>
     <meta charset="utf-8">    
     <title>Flying Dutchman</title>
-    <link rel="stylesheet" href="css/login.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Lobster|Pacifico'); 
-    </style>
-    
+    <link rel="stylesheet" href="css/login.css">    
+    <script type="text/javascript" src="DBLoaded.js"></script>   
 </head>
 <body>
+    <script>
+		function user_validate(){  
+           
+			var UserName = document.getElementById("user_name").value;  /* get the username from the html form and assign to variable UserName*/
+			var PassWord = document.getElementById("pass_word").value;  /* get the password from the html form and assign to variable PassWord*/
+			var UserData = DB.users; /*get the all user data from DBLoaded.js file and assign to UserData*/
+			var userFound = false;
+            
+            /*Validate the username and password*/
+            /*password": "b690bc2447d40ea8a6f78345eb979a28", "username": "jorass"*/
+            
+	        for(var i = 0; i < UserData.length; i++){
+	        	if(UserData[i].username == UserName && UserData[i].password == PassWord){
+	        		userFound = true;
+	        	}
+	        }
+            
+            /*userfound is true then redirect to the index page otherwise display alertbox for invalid details*/
+
+	        if(userFound){
+	        	localStorage.setItem("loggedUser", UserName); /*set the value of a specified local storage item*/
+                document.location.href = "home.html";
+
+                /*location.href:-return href property and document.location:-read-only property returns a Location object,
+                 which contains information about the URL of the document and provides methods for changing that URL and loading another URL.*/
+                /*console.log(document.location.href); */
+                
+	        }else{
+                alert("Invalid Username/Password");                
+	        }
+	        
+		}
+	</script>
+
     <div class="loginbox">
         <img src="images/user2.png" class="avtar">
         <h1>Login Here</h1>
 
-        <form>
+        <form action="javascript:user_validate();" method="post">
             <p> Username</p>
-            <input type="text" name="" placeholder="Enter Username">
+            <input type="text" name="uname" placeholder="Enter Username" id="user_name" required>
             <p> Password</p>
-            <input type="password" name="" placeholder="Enter Password">
-            <input type="submit" name="" value="LogIn">
+            <input type="password" name="psswrd" placeholder="Enter Password" id="pass_word" required>
+            <input type="submit" name="" value="Log In">
             <a href="#"> Forget Password</a><br>
         </form>
     </div>
 </body>
 </html>
+

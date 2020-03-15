@@ -4,15 +4,16 @@
     box-sizing: border-box;
 }
 body {            
-    background-color:red;   
-    color:white;   
+    background-color:rgb(218, 145, 72); ;   
+    color:white;   /*Font color*/
     font-size: 20px;   
     /*overflow-x: hidden;*/ 
     font-family: 'Flamenco', cursive,Arial, Helvetica, sans-serif;   
     padding: 0px;
     }
+
 .background-image {
-    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url("../images/6.jpg");
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../images/4.jpg");
     background-color: #cccccc;    
     height: 100%;
     width: 100%;
@@ -25,6 +26,7 @@ body {
 header {       
     color: white;
 }
+/* If the element will overflow outside of its container , it helps to fix the element at proper position.*/
 .clearfix:after{
     content:".";
     visibility: hidden ;
@@ -33,7 +35,7 @@ header {
     clear: both;
 }
 .row{
-    max-width: 1180px; /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attrivute*/
+    max-width:1180; /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attrivute*/
     margin: 0 auto; /*Aways in centre*/
 }
 .logo{
@@ -43,8 +45,9 @@ header {
     margin-top: 15px;
 }
 .main-nav{
-    float:right;
-    margin-top: 60px;
+    float:left;
+    margin-top: 70px;
+    padding-top: 20px;
 }
 .main-nav li{
     display:inline-block;
@@ -53,24 +56,24 @@ header {
 }
 
 .main-nav li a{
-    padding: 5px,0px;
+    padding: 0px,0px;
     color: #fff;
-    text-decoration: none; /*Remove underline from nchor tags*/
+    text-decoration: none; /*Remove underline from anchor tags*/
     text-transform: uppercase;
     font-size: 90%; 
     font-weight: 100;
 }
 .main-nav li a:hover{
-    border-bottom: 2px solid violet;
+    border-bottom: 2px solid rgb(236, 158, 79);
 }
 
 .main-content{
-    width: 56%;;
+    width: 56%;
     position: obsolute;
     /*border: 1px solid red;*/
     top:50%;
-    left:50%;
-    transform: translate(10%,60%);
+    left:10%;
+    transform: translate(30%,60%);/*place the content to the proper position*/
     float: left;
 }       
 
@@ -79,7 +82,7 @@ h1{
     font-size: 150%;
     word-spacing: 5px;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-transform: uppercase;
     font-weight: lighter;
 }
@@ -99,9 +102,9 @@ h1{
 
 .btn-full{
     background-color: transparent;
-    color: #bf55ec;
+    color: #dfa042;
     margin-right: 15px;
-    border: 1px solid #bf55ec;
+    border: 1px solid  #dfa042;
 }
 
 .btn-full:hover{
@@ -113,15 +116,21 @@ h1{
     border: 1px solid white;
 }
 .btn-nav:hover{
-    background-color: violet;
+    background-color:  #dfa042;
 }
 
 @keyframes colorchangeflying {
-    0%{color:red;}
-    25%{color:violet}
+    0%{color:rgb(255, 72, 0);}
+    25%{color: rgb(194, 191, 33)}  
     50%{color:white}
-    100%{color:purple}
+    100%{color: #dfa042}
 }
 marquee{
  width: 100%;
+}
+
+.logoimages{
+    float:right;
+    font-size: 15pt;
+   
 }

@@ -84,12 +84,12 @@ function setCategory(menuItems) {
             {
                     if(price != undefined)
                     {
-                        out += '<div id="' + "menuitem" + '" draggable="true" ondragstart="drag(event)">' 
-                        + name +' '+'<span class="price">'+ price + '</span><br>';
+                        out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
+                        + name +' '+'<span class="price">'+ price + '</span><br></div>';
                     }
                     if(desc != undefined)
                     {
-                       out += desc +'</div><br>';
+                       out += '<div>' + desc +'</div><br>';
                     }
                 }
         } 

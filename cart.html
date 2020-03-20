@@ -5,6 +5,7 @@
 
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/myHandler.js"></script>
+<script type="text/javascript" src="js/drop.js"></script>
 <script type="text/javascript" src="db_files/Beverages_eng.js"></script>
 
 
@@ -68,6 +69,8 @@
                 </tr>
             </thead>
         </table>
+        <div class="cartContent" id="1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
         <hr>
          <h2>Drop here to add to cart</h2>
         <p class="total">Total: $0</p>

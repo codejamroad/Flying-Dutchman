@@ -1,13 +1,3 @@
-/**
- * Created by LOe on 01/12/15.
- *
- * This is a primary example on how jQuery is used to set up the functionality of the menu part
- * of the interface. It is slightly difficult to read as it is, but the documentation should be
- * to at least some help. Make sure that you understand how the different parts work in this file.
- */
-
-// This function defines the functionality of the menus on the right side of the bar.
-//
 $(function () {
 
     // First we hide all menus, but the one with all courses.

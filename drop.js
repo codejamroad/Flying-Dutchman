@@ -1,11 +1,3 @@
-/**
- * Created by LOe on 01/12/15.
- */
-//
-// A standard function. If you don't want any "extras", just use this
-// as it is. It will prevent the default behaviour, which is not to accept
-// any drops.
-//
 function allowDrop(ev) {
     ev.preventDefault(); // This makes the item accept drop actions.
 }

@@ -81,7 +81,7 @@ function setCategory(menuItems) {
                     if(item[2] != undefined)
                     {
                         out += '<div id="' + "menuitem" + '" draggable="true" ondragstart="drag(event)">' 
-                        + item[0] +' '+ item[1] + ' <span class="price">'+ item[2]+'kr' + '</span><br>';
+                        + item[0] +' '+ item[1] + '<span class="price">'+ item[2]+'kr' + '</span><br>';
                     }
                 
                     if(item[3]!= undefined)

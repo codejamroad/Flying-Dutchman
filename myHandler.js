@@ -88,24 +88,17 @@ function setCategory(menuItems) {
             
             if(i < itemToDisplay)
             {
-                if(i < itemToDisplay)
-                {
-                    out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
-                    + item[0]  + item[1];
-    
-                    if(item[2]!= undefined)
+                    if(item[2] != undefined)
                     {
-                        out += ' <class="price">'+ item[2] + '</div>' + '</ br>'
+                        out += '<div id="' + "menuitem" + '" draggable="true" ondragstart="drag(event)">' 
+                        + item[0] +' '+ item[1] + ' <span class="price">'+ item[2]+'kr' + '</span></ br>';
                     }
-                    
+                
                     if(item[3]!= undefined)
                     {
-                        out += '<div id = "' + 'Alocohol %:'+ item[3] +'</div>' + '</ br>';
+                       out += item[3] +'</div></ br>';
                     }
                 }
-                
-            }
-            
         } 
         
     // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
@@ -143,16 +136,16 @@ function getAllData() {
         str = NewDB[i].catgegory.toLowerCase();
 
         if(str.includes("beer") || str.includes("ale") )
-        abeers.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclva, NewDB[i].alcoholstrength]);
+        abeers.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
 
         else if(str.includes("spicy spirits") || str.includes("okryddad sprit") )
         aspirits.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
 
         else if(str.includes("wine") || str.includes("vin"))
-        awines.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat], NewDB[i].alcoholstrength);
+        awines.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
 
         else if(str.includes("whisky") || str.includes("whisky"))
-        awhiskys.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat], NewDB[i].alcoholstrength);
+        awhiskys.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
     }
     
     //

@@ -77,7 +77,7 @@ function setCategory(menuItems) {
             i++;
 
             var name = item[0]+" "+item[1];
-            var price = item[2];
+            var price = item[2] + 'kr';
             var desc = item[3];
 
             if(i < itemToDisplay)
@@ -85,9 +85,9 @@ function setCategory(menuItems) {
                     if(price != undefined)
                     {
                         out += '<div id="' + "menuitem" + '" draggable="true" ondragstart="drag(event)">' 
-                        + name +' '+'<span class="price">'+ price +'kr' + '</span><br>';
+                        + name +' '+'<span class="price">'+ price + '</span><br>';
                     }
-                    if(desc!= undefined)
+                    if(desc != undefined)
                     {
                        out += desc +'</div><br>';
                     }

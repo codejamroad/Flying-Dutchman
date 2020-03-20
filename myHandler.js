@@ -88,9 +88,21 @@ function setCategory(menuItems) {
             
             if(i < itemToDisplay)
             {
-                out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
-                + item[0]  + item[1] + ' <div id="price1">' + item[2] + '</div></div>' ;
-
+                if(i < itemToDisplay)
+                {
+                    out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
+                    + item[0]  + item[1];
+    
+                    if(item[2]!= undefined)
+                    {
+                        out += ' <class="price">'+ item[2] + '</div>' + '</ br>'
+                    }
+                    
+                    if(item[3]!= undefined)
+                    {
+                        out += '<div id = "' + 'Alocohol %:'+ item[3] +'</div>' + '</ br>';
+                    }
+                }
                 
             }
             

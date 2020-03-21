@@ -61,7 +61,7 @@ function setCategory(menuItems) {
 
     // The collection variable
     //
-    var itemToDisplay = 8;
+    var itemToDisplay = 10;
     var out = "";
    
     var i = 0;
@@ -84,12 +84,14 @@ function setCategory(menuItems) {
             {
                     if(price != undefined)
                     {
-                        out += '<div id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
-                        + name +' '+'<span class="price">'+ price + '</span><br></div>';
+                        out += '<div  style = "float:left" id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
+                        + name +' '+'</div>'+
+                        '<div style = "float:right" <span style="font-size: 20px;" class="price">'+'&nbsp; &nbsp; &nbsp;&nbsp;'
+                        + price + '</span><br></div>';
                     }
                     if(desc != undefined)
                     {
-                       out += '<div>' + desc +'</div><br>';
+                       out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' + desc +'</div></h6></font><br>';
                     }
                 }
         } 

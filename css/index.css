@@ -134,3 +134,8 @@ marquee{
     font-size: 15pt;
    
 }
+
+.main-nav .current{
+    color:rgb(231, 154, 10);
+    font-size: 25px;
+    } 

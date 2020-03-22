@@ -1,12 +1,14 @@
 <html>
 <head>    
     <title>Flying Dutchman</title>
+    <meta charset="UTF-8">
 
    <!-- Slide Down Animation effect for menu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <!--API for font-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">     
+    <script type="text/javascript" src="JS/language.js"></script>
 </head>
 
 <body>
@@ -15,42 +17,104 @@
             <nav>
                 <div class="row clearfix">
                     <div><br><img src="images/logo.png" class="logo"></div>
-                    <div>
-                    <div class="logoimages">
-                        <a href="#"><img src="images/sweden.png" width="30px" height="30px"></a>
-                        <a href="#"><img src="images/uk.png" width="30px" height="30px"></a>
-                        &nbsp;&nbsp;&nbsp;<a href="#"><img src="images/cart.png" width="50px" height="40px"></a>
-                    </div>
-                    <div>
-                        <ul class="main-nav animated slideInDown">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="#">About us</a></li>                         
-                            <li><a href="#">Drinks</a></li>
-                            <li><a href="#">Contacts</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            
+                    
+                        <div class="logoimages">                      
+                            <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+                            <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+                            <a href="#"><img src="images/cart.png" width="40px" height="30px"></a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                               
+                            <a href="login.html" id="login" style="color: white; font-size: 22px;">Login</a>
+                         </div>
+                        <div>
+                            <ul class="main-nav animated slideInDown">
+                                <li><a href="index.html"  id="home">Home</a></li>
+                                <li><a href="About Us.html" id="about">About us</a></li>                         
+                                <li><a href="cart.html" id="drinks">Beverages</a></li>
+                                <li><a href="#" id="chefs">Chefs</a></li>
+                                <li><a href="#" id="contact">Contacts</a></li>
                             </ul>   
                         </div>  
-                    </div>
+                    
                 </div>
             </nav> 
         </header>
     
         <section>       
-            <div class="main-content">                
-                <h1>Welcome To <span class="colorchange">Flying Dutchman</span>..<br> 
-                Bar of beer lovers Oo YES!!            
-                </h1>                
-                <a href="#" class="btn btn-full">Order Now</a>
-                <a href="#" class="btn btn-nav">Reservations</a>
+            <div class="main-content" >                
+                <h1 id="content">Welcome To <span class="colorchange" >Flying Dutchman</span>..</h1><br> 
+                <h1 id="content2">Bar of beer lovers Oo YES!!</h1>   
+                              
+                <a href="cart.html" class="btn btn-full"><p id="order">Order Now </p></a>
+                <a href="#" class="btn btn-nav"><p id="reserve">Reservations</p></a>
             </div> 
             <div style="width:44%; float: right;">
                 <marquee behavior="slide" direction="left" loop="1">
                     <img src="images\b.png" width="250px" height="250px">
-                    
                 </marquee>
             </div>         
-        </section>           
+        </section>  
+        
+        <script>
+            //Define language reload anchors
+            var dataReload = document.querySelectorAll("[data-reload]");
+        
+            //Language Translations
+            var language = {
+            eng: {
+                Login:"Login",
+                Home: "HOME",
+                About: "ABOUT US",
+                Drink: "BEVERAGES",               
+                Chefs: "CHEFS",
+                Contact:"CONTACTS",
+                Content: "WELCOME TO FLYING DUTCHMAN..",
+                //Content1: "FLYING DUTCHMAN ..",
+                Content2: "BAR OF BEER LOVERS OO YES!!",
+                Order: "ORDER NOW",
+                Reserve: "RESERVATIONS",            
+            },
+
+            swe: {
+            Login:"Logga In",           
+            Home: "HEM",
+            About: "OM OSS",
+            Drink: "DRYCKER",
+            Chefs: "KOKAR",
+            Contact:"KONTAKT",
+            Content: "VÄLKOMMEN TILL FLYING DUTCHMAN..",
+            //Content1: "FLYING DUTCHMAN..",
+            Content2: "BAR MED ÖLÄLSKARE OO YEHH!!",
+            Order: "BESTÄLL NU",
+            Reserve: "RESERVATIONER",
+            }
+        };
+        
+            //Define language via window hash
+            if(window.location.hash){
+                if(window.location.hash==="#swe"){
+                    login.textContent = language.swe.Login;                    
+                    home.textContent = language.swe.Home; //home is id and Home is an label for json bject
+                    about.textContent = language.swe.About;
+                    drinks.textContent = language.swe.Drink;
+                    chefs.textContent = language.swe.Chefs;
+                    contact.textContent = language.swe.Contact;       
+                    content.textContent = language.swe.Content;
+                    //content1.textContent = language.swe.Content1;
+                    content2.textContent = language.swe.Content2;
+                    order.textContent = language.swe.Order;
+                    reserve.textContent = language.swe.Reserve;
+
+                }
+            }
+        
+            //define language reload onclick illiteration
+            for (i=0; i<= dataReload.length;i++){
+                dataReload[i].onclick = function(){
+                    location.reload(true);
+                };
+            }
+        </script>
+   
 </body> 
 </html>
 

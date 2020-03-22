@@ -1,0 +1,101 @@
+<html>
+<head>    
+    <title>Flying Dutchman</title>
+
+   <!-- Slide Down Animation effect for menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!--API for font-->
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">     
+</head>
+
+<body>
+    <div class="background-image"> 
+        <header>
+            <nav>
+                <div class="row clearfix">
+                    <div><br><img src="images/logo.png" class="logo"></div>
+                    
+                    <div class="logoimages">
+                        <a href="#eng"  data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+                        <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+                        <a href="#"><img src="images/cart.png" width="40px" height="30px"></a>   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div>
+                        <ul class="main-nav animated slideInDown">
+                            <ul class="main-nav animated slideInDown">
+                                <li><a href="home.html"  id="home">Home</a></li>
+                                <li><a href="About Us.html" id="about" class="current">About us</a></li>                         
+                                <li><a href="cart.html" id="drinks">Beverages</a></li>
+                                <li><a href="#" id="chefs">Chefs</a></li>
+                                <li><a href="#" id="contact">Contacts</a></li>
+                            </ul>                         
+                        </ul>   
+                     </div>  
+                   
+                </div>
+            </nav> 
+        </header>
+    
+        <section>       
+            <div class="main-content">                
+                <!--<h1><u <span class="colorchange">About-Us</span></u><br></h1>  -->  
+                Lorem ipsum dolor sit amet, ut iracundia persecuti mel, vim eu tota falli, est mutat munere saperet ea. 
+                    Usu in sanctus molestie laboramus.Vix no tation verterem nominati, exerci quaestio definitiones ex duo, te mel veri ubique soluta. 
+                    Est id error incorrupte instructior, vis natum invenire cu. Ea posse urbanitas vel.
+                    Ea quo etiam nullam graece, error congue recteque ad vix. Dolorem scripserit ullamcorper ei cum. 
+                    Eros numquam maiestatis sed te, liber imperdiet no cum. Cu sea verear qualisque, duo regione corrumpit et. 
+                              
+            </div>                 
+        </section>      
+        
+        <script>
+            //Define language reload anchors
+            var dataReload = document.querySelectorAll("[data-reload]");
+        
+            //Language Translations
+            var language = {
+            eng: {
+               
+                Home: "HOME",
+                About: "ABOUT US",
+                Drink: "BEVERAGES",               
+                Chefs: "CHEFS",
+                Contact:"CONTACTS",                         
+            },
+
+            swe: {
+            
+            Home: "HEM",
+            About: "OM OSS",
+            Drink: "DRYCKER",
+            Chefs: "KOKAR",
+            Contact:"KONTAKT",
+           
+            }
+        };
+        
+            //Define language via window hash
+            if(window.location.hash){
+                if(window.location.hash==="#swe"){
+                   
+                    home.textContent = language.swe.Home; //home is id and Home is an label for json bject
+                    about.textContent = language.swe.About;
+                    drinks.textContent = language.swe.Drink;
+                    chefs.textContent = language.swe.Chefs;   
+                    contact.textContent = language.swe.Contact;        
+
+                }
+            }
+        
+            //define language reload onclick illiteration
+            for (i=0; i<= dataReload.length;i++){
+                dataReload[i].onclick = function(){
+                    location.reload(true);
+                };
+            }
+        </script>
+   
+</body> 
+</html>
+

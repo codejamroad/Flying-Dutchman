@@ -1,9 +1,22 @@
+var abeers = [];
+var awines = [];
+var awhiskys = [];
+var aspirits = [];
+
+// Using a local variable to collect the items.
+var collector = {
+    beer: abeers,
+    wine: awines,
+    whisky: awhiskys,
+    spirits: aspirits
+}
+
 $(function () {
 
     // First we hide all menus, but the one with all courses.
     //
-    $("#whisky").show();
-    $("#wine").hide();
+    $("#wine").show();
+    $("#whisky").hide();
     $("#beer").hide();
     $("#spirit").hide();
 
@@ -45,7 +58,7 @@ $(function () {
 
     // Here we put the different kinds of food into the respective menus.
     //
-    var data = getAllData();
+    var data = getAllData(8);
 
     $(setCategory(data.beer)).appendTo("#beer");
     $(setCategory(data.wine)).appendTo("#wine");
@@ -61,7 +74,7 @@ function setCategory(menuItems) {
 
     // The collection variable
     //
-    var itemToDisplay = 10;
+    var itemToDisplay = 8;
     var out = "";
    
     var i = 0;
@@ -84,9 +97,9 @@ function setCategory(menuItems) {
             {
                     if(price != undefined)
                     {
-                        out += '<div  style = "float:left" id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
+                        out += '<div style = "float:left" id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
                         + name +' '+'</div>'+
-                        '<div style = "float:right" <span style="font-size: 20px;" class="price">'+'&nbsp; &nbsp; &nbsp;&nbsp;'
+                        '<div style = "float:right" /<span style="font-size: 20px;" class="price">'+'&nbsp; &nbsp; &nbsp;&nbsp;'
                         + price + '</span><br></div>';
                     }
                     if(desc != undefined)
@@ -108,29 +121,20 @@ function setCategory(menuItems) {
 // add new elements, and that the data is easy to access, and also update if needed.
 //
 //
-function getAllData() {
+function getAllData(itemToFetch) {
 
-    var abeers = [];
-    var awines = [];
-    var awhiskys = [];
-    var aspirits = [];
-    
-
-    // Using a local variable to collect the items.
-    var collector = {
-        beer: abeers,
-        wine: awines,
-        whisky: awhiskys,
-        spirits: aspirits
-    }
+    var i = 0;
     // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
     // items, you may introduce filter functions in the loop... see the template within comments.
     //
-    for (i = 0; i < NewDB.length; i++) {
+    while((Object.keys(abeers).length < itemToFetch) 
+        || (Object.keys(aspirits).length < itemToFetch) 
+        || (Object.keys(awines).length < itemToFetch)
+        || (Object.keys(awhiskys).length < itemToFetch)) {
 
         str = NewDB[i].catgegory.toLowerCase();
 
-        if(str.includes("beer") || str.includes("ale") )
+        if(str.includes("beer") || str.includes("ale") )    
         abeers.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
 
         else if(str.includes("spicy spirits") || str.includes("okryddad sprit") )
@@ -141,6 +145,8 @@ function getAllData() {
 
         else if(str.includes("whisky") || str.includes("whisky"))
         awhiskys.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
+
+        i++;
     }
     
     //

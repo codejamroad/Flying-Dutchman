@@ -23,13 +23,12 @@
     <header>            
         <div><br><img src="images/logo.png" class="logo"></div>        
 
-         <div style="float:right;">     
+         <div style="float:right;">            
             
-            
-            <a href="#"><img src="images/sweden.png" width="30px" height="30px"></a>
-            <a href="#"><img src="images/uk.png" width="30px" height="30px"></a> 
-            &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp; 
-            <a href="#"><img src="images/user5.png" width="35px" height="35px"></a><font size="3px">Welcome!&nbsp;&nbsp;</font>
+            <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+            <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+            &nbsp;  &nbsp;  &nbsp; 
+            <a href="#"><img src="images/user5.png" width="30px" height="30px"></a><font size="3px">Welcome!&nbsp;&nbsp;</font>
         </div>      
     </header>
 <br>
@@ -38,35 +37,33 @@
     <div style="width: 70%; height: 550px; padding-top: 5px;" class="row clearfix">     
         <div style="float:left;">
             <ul class="main-nav animated slideInDown" id="mtabs">
-                <li id="wines"><a href="#">Wine</a></li>
-                <li id="beers"><a href="#">Beer</a></li>                         
-                <li id="spirits"><a href="#">Spicy Spirits</a></li>
-                <li id="whiskys"><a href="#">Whiskey</a></li>
-                <li><a href="#">Special Drinks</a></li>                    
+                <li id="wines"><a href="#" id="_wine">Wine</a></li>
+                <li id="beers"><a href="#" id="_beer">Beer</a></li>                         
+                <li id="spirits"><a href="#" id="_spicy">Spicy Spirits</a></li>
+                <li id="whiskys"><a href="#" id="_whiskey">Whiskey</a></li>
+                <li><a href="#" id="_special">Special Drinks</a></li>                    
             </ul>                     
-        </div>    
-                
+        </div>                    
         <div style="float:left;" id="price1">
             <ul class="main-nav animated slideInDown">      
-                <li><a href="#">Price</a></li>  
+                <li><a href="#" id="_price">Price</a></li>  
             </ul>                 
         </div>   
-        <br>
-
-    <div class="menu" id="whisky" style="float:left; padding-top: 20px;"></div>
+        <br>    
     <div class="menu" id="wine" style="float:left; padding-top: 20px;"></div>
     <div class="menu" id="beer" style="float:left; padding-top: 20px;"></div>
-    <div class="menu" id="spirit" style="float:left; padding-top: 20px;"></div>         
+    <div class="menu" id="spirit" style="float:left; padding-top: 20px;"></div>
+    <div class="menu" id="whisky" style="float:left; padding-top: 20px;"></div>         
     </div> 
     <div class="cartform" >
-        <font size="4px">Cart</font>
+        <font size="4px" id="cart">Cart</font>
         <img src="images/cart.png" width="40px" height="40px" >       
         <table style="width:300px;height:auto;">
             <thead>
                 <tr>
-                    <th field="name">Name</th>
-                    <th field="quantity">Quantity</th>
-                    <th field="price">Price</th>
+                    <th field="name" id="name">Name</th>
+                    <!--<th field="quantity" id="quantity">Quantity</th>-->
+                    <th field="price" id="price">Price</th>
                 </tr>
             </thead>
         </table>        
@@ -77,12 +74,70 @@
          <h2>Drop here to add to cart 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="checkout.html" class="btn btn-full">CHECKOUT</a></h2>
-        <p class="total">Total: $0</p>
-        
+        <p class="total">Total: $0</p>       
 
 </div>
-
 </section>
+<script>
+    //Define language reload anchors
+    var dataReload = document.querySelectorAll("[data-reload]");
+
+    //Language Translations
+    var language = {
+    eng: {
+        //Login:"Login",
+        Wine: "WINE",
+        Beer: "BEER",
+        Spicy: "SPICY SPIRITS",               
+        Whiskey: "WHISKEY",
+        Special:"SPECIAL DRINKS",
+        Price: "PRICE",
+        //Content1: "FLYING DUTCHMAN ..",
+        Name: "Name",
+        //Quantity: "Quantity",
+        Price1: "Price",            
+    },
+
+    swe: {
+        //Login:"Logga In",           
+        Wine: "VIN",
+        Beer: "ÖL",
+        Spicy: "KRYDDIG SPIRITS",               
+        Whiskey: "WHISKY",
+        Special:"SPECIAL DRYCKER",
+        Price: "PRIS",
+        //Content1: "FLYING DUTCHMAN ..",
+        Name: "Namn",
+        //Quantity: "Kvantiet",
+        Price1: "Pris",  
+    }
+};
+
+    //Define language via window hash
+    if(window.location.hash){
+        if(window.location.hash==="#swe"){
+            //login.textContent = language.swe.Login;                    
+            _wine.textContent = language.swe.Wine; 
+            _beer.textContent = language.swe.Beer;
+            _spicy.textContent = language.swe.Spicy;
+            _whiskey.textContent = language.swe.Whiskey;
+            _special.textContent = language.swe.Special;       
+            _price.textContent = language.swe.Price;
+            //content1.textContent = language.swe.Content1;
+            //content2.textContent = language.swe.Content2;
+            name.textContent = language.swe.Name;
+            price.textContent = language.swe.Price1;
+
+        }
+    }
+
+    //define language reload onclick illiteration
+    for (i=0; i<= dataReload.length;i++){
+        dataReload[i].onclick = function(){
+            location.reload(true);
+        };
+    }
+</script>
     
   
 

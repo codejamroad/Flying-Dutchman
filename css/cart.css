@@ -127,13 +127,13 @@ h2{
     text-align:left;
     padding :20px;
     position:absolute;
-    bottom:20px;
+    bottom:80px;
 }
 
 .cartform{    
     background-color: rgb(141, 101, 60);
     float:left; 
-    width: 29%; 
+    width: 25%; 
     margin-top:10px; 
     border-radius: 10px; 
     border-style: solid; 

@@ -1,3 +1,4 @@
+var total = 0;
 function allowDrop(ev) {
     ev.preventDefault(); // This makes the item accept drop actions.
 }
@@ -35,11 +36,14 @@ function drop(ev) {
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
     var itemName = nodeCopy.innerHTML;
+    var matches = itemName.match(/(\d+)/);
+    price = parseInt(matches[0]);
 
-    price = getPrice(itemName, data);
+//    var htmlcode = nodeCopy.outerHTML;
+    //var update = htmlcode + '</div>' + '<div style = "float:right" /<span style="font-size: 20px;" class="price">' 
+    //+ '&nbsp;' + price + '</span><br></div>';
 
-    nodeCopy.outerHTML = nodeCopy.outerHTML + "<br>";  
-
+    //nodeCopy.outerHTML = update;
     nodeCopy.id = "newId";  // We cannot use the same ID. Ideally we should generate the new ID with a
                             // random or incremental number. This is left as an exercise...
                             //
@@ -58,40 +62,99 @@ function drop(ev) {
 
     // Get the prices from the order.
     //
-    
+    //prices = getPrices(order);
 
     // Make a total sum of all the prices.
     //
-    // sum = sumTotal(prices);
+    total = sumTotal(price, total);
 
     // Replace the content of the order with the new sum
     //
-    $("44" + " .tsum").text(sum + " kr.");
+    document.getElementById("sum").innerHTML = "Total: "+ total + " kr";
+}
 
+function sumTotal(price, sum)
+{
+    return sum + price;
 }
 
 //Get the list of prices from all the currentorders.
 
-function getPrices(itemName, categoryInfo) {
+// function getPrices (htmlString) {
 
-    // We create a new jQuery object and put the HTML string into it.
-    //
-    str = categoryInfo.toLowerCase();
+//     // We create a new jQuery object and put the HTML string into it.
+//     //
+//     var el = $( '<div></div>' );
+//     el.html(htmlString);
 
-    // if(str.includes("beer"))
-    // collector.beer.forEach(element => {
-    //     element.
-    // }); 
+//     // Then we can use jQuery to find all elements in this string.
+//     //
+//     return $('.price', el); // All the price elements
+// }
 
-}
+// function getPrice(itemName, categoryInfo) {
 
-function getCategory(categoryInfo)
-{
-   
-   
-}
-// // Sum up all the prices in the order. Note that the data is still stored in an HTML string.
-// //
+
+//     // We create a new jQuery object and put the HTML string into it.
+//     //
+//     var price = 0;
+//     str = categoryInfo.toLowerCase();
+
+//     if(str.includes("beer"))
+//     {
+//         for (let index = 0; index < collector.beer.length; index++) {
+//             const element = collector.beer[index];
+//             str = element.name; 
+//             if(str.localeCompare(itemName) == 0) 
+//             {
+//                 price = element.price;
+//             }
+//         }
+//     }
+
+//     else if(str.includes("wine"))
+//     {
+//         for (let index = 0; index < collector.wine.length; index++) {
+//             const element = collector.wine[index];
+//             str = element.name; 
+//             if(str.localeCompare(itemName) == 0)
+//             {
+//                 price = element.price;
+//             }
+//         }
+//     }
+
+//     else if(str.includes("whisky"))
+//     {
+//         for (let index = 0; index < collector.whisky.length; index++) {
+//             const element = collector.whisky[index];
+//             str = element.name;
+//             if(str.localeCompare(itemName) == 0)
+//             {
+//                 price = element.price;
+//             }
+//         }
+//     }
+
+//     else if(str.includes("spirits"))
+//     {
+//         for (let index = 0; index < collector.spirits.length; index++) {
+//             const element = collector.spirits[index];
+//             str = element.name;
+//             if(str.localeCompare(itemName) == 0)
+//             {
+//                 price = element.price;
+//             }
+//         }
+//     }
+
+//     return price;
+
+// }
+
+
+// Sum up all the prices in the order. Note that the data is still stored in an HTML string.
+//
 // function sumTotal(data) {
 
 //     // reset the total sum;

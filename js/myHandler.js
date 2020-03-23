@@ -1,16 +1,3 @@
-var beerlist = [];
-var winelist = [];
-var whiskylist = [];
-var spiritlist = [];
-
-// Using a local variable to collect the items.
-var collector = {
-    beer: beerlist,
-    wine: winelist,
-    whisky: whiskylist,
-    spirits: spiritlist
-}
-
 $(function () {
 
     // First we hide all menus, but the one with all courses.
@@ -74,7 +61,7 @@ function setCategory(menuItems) {
 
     // The collection variable
     //
-    var itemToDisplay = 8;
+    var itemToDisplay = 10;
     var out = "";
    
     var i = 0;
@@ -87,12 +74,6 @@ function setCategory(menuItems) {
         menuItems.forEach(myFunction);
     
         function myFunction(item) { 
-            i++;
-
-            // var name = item[0];
-            // var price = item[2] + 'kr';
-            // var desc = item[3];
-            // var catgegory = item[4];
 
             if(i < itemToDisplay)
             {
@@ -100,9 +81,9 @@ function setCategory(menuItems) {
                 {
                     out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
                     + '" draggable="true" ondragstart="drag(event)">' 
-                    + item.name +' '+'</div>'
-                    + '<div style = "float:right" /<span style="font-size: 20px;" class="price">'
-                    + '&nbsp; &nbsp; &nbsp;&nbsp;'
+                    + item.name +
+                    + '<<span style="font-size: 20px;" class="price">'
+                    + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
                     + item.price + '</span><br></div>';
                 }
                 if(item.desc != undefined)
@@ -111,6 +92,8 @@ function setCategory(menuItems) {
                     + item.desc 
                     +'</div></h6></font><br>';
                 }
+            i++;
+
             }  
         } 
         

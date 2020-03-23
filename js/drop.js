@@ -34,6 +34,12 @@ function drop(ev) {
     //
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
+    var itemName = nodeCopy.innerHTML;
+
+    price = getPrice(itemName, data);
+
+    nodeCopy.outerHTML = nodeCopy.outerHTML + "<br>";  
+
     nodeCopy.id = "newId";  // We cannot use the same ID. Ideally we should generate the new ID with a
                             // random or incremental number. This is left as an exercise...
                             //
@@ -52,48 +58,54 @@ function drop(ev) {
 
     // Get the prices from the order.
     //
-    prices = getPrices(order);
+    
 
     // Make a total sum of all the prices.
     //
-    sum = sumTotal(prices);
+    // sum = sumTotal(prices);
 
     // Replace the content of the order with the new sum
     //
-    $(orderTable(tempid) + " .tsum").text(sum + " kr.");
+    $("44" + " .tsum").text(sum + " kr.");
 
 }
 
-// Get the list of prices from all the currentorders.
-//
-function getPrices (htmlString) {
+//Get the list of prices from all the currentorders.
+
+function getPrices(itemName, categoryInfo) {
 
     // We create a new jQuery object and put the HTML string into it.
     //
-    var el = $( '<div></div>' );
-    el.html(htmlString);
+    str = categoryInfo.toLowerCase();
 
-    // Then we can use jQuery to find all elements in this string.
-    //
-    return $('.price', el); // All the price elements
+    // if(str.includes("beer"))
+    // collector.beer.forEach(element => {
+    //     element.
+    // }); 
+
 }
 
-// Sum up all the prices in the order. Note that the data is still stored in an HTML string.
-//
-function sumTotal(data) {
-
-    // reset the total sum;
-    //
-    var sum = 0;
-
-    // Go through the elements and collect the internal texts.
-    // Each string is parsed to an integer.
-    //
-    for (i = 0; i < data.length; i++) {
-        sum += parseInt(data[i].innerText);
-    }
-    return sum;
+function getCategory(categoryInfo)
+{
+   
+   
 }
+// // Sum up all the prices in the order. Note that the data is still stored in an HTML string.
+// //
+// function sumTotal(data) {
+
+//     // reset the total sum;
+//     //
+//     var sum = 0;
+
+//     // Go through the elements and collect the internal texts.
+//     // Each string is parsed to an integer.
+//     //
+//     for (i = 0; i < data.length; i++) {
+//         sum += parseInt(data[i].innerText);
+//     }
+//     return sum;
+// }
 // ===================================================================================================================
 // END OF FILE
 // ===================================================================================================================

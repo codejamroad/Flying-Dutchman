@@ -1,14 +1,14 @@
-var abeers = [];
-var awines = [];
-var awhiskys = [];
-var aspirits = [];
+var beerlist = [];
+var winelist = [];
+var whiskylist = [];
+var spiritlist = [];
 
 // Using a local variable to collect the items.
 var collector = {
-    beer: abeers,
-    wine: awines,
-    whisky: awhiskys,
-    spirits: aspirits
+    beer: beerlist,
+    wine: winelist,
+    whisky: whiskylist,
+    spirits: spiritlist
 }
 
 $(function () {
@@ -89,24 +89,29 @@ function setCategory(menuItems) {
         function myFunction(item) { 
             i++;
 
-            var name = item[0]+" "+item[1];
-            var price = item[2] + 'kr';
-            var desc = item[3];
+            // var name = item[0];
+            // var price = item[2] + 'kr';
+            // var desc = item[3];
+            // var catgegory = item[4];
 
             if(i < itemToDisplay)
             {
-                    if(price != undefined)
-                    {
-                        out += '<div style = "float:left" id="' + "menuitem" + i + '" draggable="true" ondragstart="drag(event)">' 
-                        + name +' '+'</div>'+
-                        '<div style = "float:right" /<span style="font-size: 20px;" class="price">'+'&nbsp; &nbsp; &nbsp;&nbsp;'
-                        + price + '</span><br></div>';
-                    }
-                    if(desc != undefined)
-                    {
-                       out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' + desc +'</div></h6></font><br>';
-                    }
+                if(item.price != undefined)
+                {
+                    out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
+                    + '" draggable="true" ondragstart="drag(event)">' 
+                    + item.name +' '+'</div>'
+                    + '<div style = "float:right" /<span style="font-size: 20px;" class="price">'
+                    + '&nbsp; &nbsp; &nbsp;&nbsp;'
+                    + item.price + '</span><br></div>';
                 }
+                if(item.desc != undefined)
+                {
+                    out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' 
+                    + item.desc 
+                    +'</div></h6></font><br>';
+                }
+            }  
         } 
         
     // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
@@ -115,42 +120,69 @@ function setCategory(menuItems) {
 }
 
 
-
-// ===================================================================================================================
-// This function returns an array, which can be read as a JSON object. This means that it is easy to
-// add new elements, and that the data is easy to access, and also update if needed.
-//
-//
 function getAllData(itemToFetch) {
 
-    var i = 0;
-    // The DB is stored in the variable DB2, with "spirits" as key element. If you need to select only certain
-    // items, you may introduce filter functions in the loop... see the template within comments.
-    //
-    while((Object.keys(abeers).length < itemToFetch) 
-        || (Object.keys(aspirits).length < itemToFetch) 
-        || (Object.keys(awines).length < itemToFetch)
-        || (Object.keys(awhiskys).length < itemToFetch)) {
+    var  dbElement= 0;
+    
+    while(IsDataFilled(itemToFetch)) {
 
-        str = NewDB[i].catgegory.toLowerCase();
+        str = bar[dbElement].catgegory.toLowerCase();
 
-        if(str.includes("beer") || str.includes("ale") )    
-        abeers.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
-
+        if(str.includes("beer") || str.includes("ale"))
+        {   
+            var abeers = { 
+            name : bar[dbElement].name,
+            price : bar[dbElement].priceinclvat,
+            desc : bar[dbElement].alcoholstrength,
+            catgegory : "beer"
+            };
+            beerlist.push(abeers);
+        }
         else if(str.includes("spicy spirits") || str.includes("okryddad sprit") )
-        aspirits.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
-
+        {    
+            var aspirits = { 
+                name : bar[dbElement].name,
+                price : bar[dbElement].priceinclvat,
+                desc : bar[dbElement].alcoholstrength,
+                catgegory : "spirits"
+                };
+            spiritlist.push(aspirits);
+        }
         else if(str.includes("wine") || str.includes("vin"))
-        awines.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
+        {    
+            var awines = { 
+                name : bar[dbElement].name,
+                price : bar[dbElement].priceinclvat,
+                desc : bar[dbElement].alcoholstrength,
+                catgegory : "wine"
+                };
+            winelist.push(awines);
+        }
 
         else if(str.includes("whisky") || str.includes("whisky"))
-        awhiskys.push([NewDB[i].name, NewDB[i].name2, NewDB[i].priceinclvat, NewDB[i].alcoholstrength]);
+        {  
+            var awhiskys = { 
+                name : bar[dbElement].name,
+                price : bar[dbElement].priceinclvat,
+                desc : bar[dbElement].alcoholstrength,
+                catgegory : "whisky"
+                };  
+            whiskylist.push(awhiskys);
+        }
 
-        i++;
+        dbElement++;
     }
     
     //
     return collector;
+}
+
+function IsDataFilled(itemToFetch)
+{
+    return (beerlist.length < itemToFetch
+        || spiritlist.length < itemToFetch 
+        || winelist.length < itemToFetch
+        || whiskylist.length < itemToFetch);
 }
 
 // ===================================================================================================================

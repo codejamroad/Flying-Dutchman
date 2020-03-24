@@ -53,7 +53,7 @@ $(function () {
 
     //variable to control number element to show in a menu item
     //
-    itemToDisplay = 10;
+    var itemToDisplay = 10;
     
     //Get all the data from
     // 
@@ -66,53 +66,6 @@ $(function () {
     $(getMenuitemList(data.spirits, itemToDisplay)).appendTo("#spirit");
     $(getMenuitemList(data.whisky, itemToDisplay)).appendTo("#whisky");
 });
-
-
-// ===================================================================================================================
-// The function returns all drinks strings (created as divs) of a certain type (given as argument).
-//
-function getMenuitemList(menuItems, itemToDisplay) {
-
-    // The collection variable
-    //
-    var out = "";
-   
-    var i = 0;
-
-    menuItems.forEach(myFunction);
-
-    function myFunction(item) { 
-
-        if(i < itemToDisplay)
-        {
-            if(item.price != undefined)
-            {
-                // we add the HTML string to the collection variable and Things to display are Name and Price of item.
-                //
-                out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
-                + '" draggable="true" ondragstart="drag(event)">' 
-                + item.name +
-                + '<<span style="font-size: 20px;" class="price">'
-                + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
-                + item.price + '</span><br></div>';
-            }
-            if(item.desc != undefined)
-            {
-                // we add the HTML string to the collection variable and Thing to display are description of item.
-                out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' 
-                + item.desc 
-                +'</div></h6></font><br>';
-            }
-        i++;
-
-        }  
-    } 
-        
-    // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
-    //
-    return out;
-}
-
 
 function getItemsToDisplay(number) {
 
@@ -196,6 +149,52 @@ function IsDataFilled(itemsRequired)
         || spiritlist.length < itemsRequired 
         || winelist.length < itemsRequired
         || whiskylist.length < itemsRequired);
+}
+
+
+// ===================================================================================================================
+// The function returns all drinks strings (created as divs) of a certain type (given as argument).
+//
+function getMenuitemList(menuItems, itemToDisplay) {
+
+    // The collection variable
+    //
+    var out = "";
+   
+    var i = 0;
+
+    menuItems.forEach(myFunction);
+
+    function myFunction(item) { 
+
+        if(i < itemToDisplay)
+        {
+            if(item.price != undefined)
+            {
+                // we add the HTML string to the collection variable and Things to display are Name and Price of item.
+                //
+                out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
+                + '" draggable="true" ondragstart="drag(event)">' 
+                + item.name +
+                + '<<span style="font-size: 20px;" class="price">'
+                + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
+                + item.price + '</span><br></div>';
+            }
+            if(item.desc != undefined)
+            {
+                // we add the HTML string to the collection variable and Thing to display are description of item.
+                out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' 
+                + item.desc 
+                +'</div></h6></font><br>';
+            }
+        i++;
+
+        }  
+    } 
+        
+    // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
+    //
+    return out;
 }
 
 // ===================================================================================================================

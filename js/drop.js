@@ -1,9 +1,9 @@
 // drop.js is reponsible to handle drag n drop funtionality
-// Events functions are implemneted to show that at target.
+// Events functions are implemented to show data at target.
 // This is used in CART implementation showing dropped items in cart and
 // Calculate total amount of an order
 
-// Global variable storing total amount of order
+// Global variable storing total amount of the order
 //
 var total = 0;
 
@@ -45,7 +45,7 @@ function drop(ev) {
 
     var itemName = nodeCopy.innerHTML;
 
-    // Using Regression to find price of the item dropped from html script string
+    // Using Regression expression to find price of the item dropped from html script string
     //
     var matches = itemName.match(/(\d+)/);
 

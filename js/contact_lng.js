@@ -26,11 +26,13 @@ var language = {
     }
 };
 
-function lngSe() {
-    //Define language reload anchors    
-    //if we use only querselector it detects only english because it returns only first element
-    //It dectes the list ;- range of elements we have means english and swedish
-    var dataReload = document.querySelectorAll("[data-reload]");
+//Define language reload anchors    
+//if we use only querselector it detects only english because it returns only first element
+//It dectes the list ;- range of elements we have means english and swedish
+var dataReload = document.querySelectorAll("[data-reload]");
+
+
+function OnLngSe() {
 
     contact.textContent = language.swe.Contact;
     msg.textContent = language.swe.Msg;
@@ -46,11 +48,7 @@ function lngSe() {
     }
 }
 
-function lngEn() {
-    //Define language reload anchors    
-    //if we use only querselector it detects only english because it returns only first element
-    //It dectes the list ;- range of elements we have means english and swedish
-    var dataReload = document.querySelectorAll("[data-reload]");
+function OnlngEn() {
 
     contact.textContent = language.eng.Contact;
     msg.textContent = language.eng.Msg;
@@ -62,7 +60,7 @@ function lngEn() {
     //when we click on the anchor image, it will reload the page
     //define language reload onclick illiteration
 
-    //dataReload.length:- detects how many elements do we have with selector and we have 2
+    //dataReload.length:- detects how many elements do we have with selector
 
     for (i = 0; i < dataReload.length; i++) {
         dataReload[i].onclick = function() {

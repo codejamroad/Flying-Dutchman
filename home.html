@@ -9,6 +9,7 @@
     <!-- Used API for Flamenco font face-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/home_lng.js"></script>
 </head>
 
 <body>
@@ -20,8 +21,8 @@
                     <div>
                         <div class="logoimages">
                             <!--We have created here atttribute "data-reload"-->
-                            <a href="home.html" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-                            <a href="home.html#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+                            <a href="#" onclick=OnLngEn()><img src="images/uk.png" width="25px" height="25px"></a>
+                            <a href="#" onclick=OnLngSe()><img src="images/sweden.png" width="25px" height="25px"></a>
                             <img src="images/cart.png" width="40px" height="30px"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="#"><img src="images/user5.png" width="30px" height="30px"></a>
                             <u id="welcome">
@@ -60,79 +61,6 @@
                 </marquee>
             </div>
         </section>
-
-        <script>
-            //Define language reload anchors
-            //if we use only querselector it detects only english because it returns only first element
-            //It dectes the list ;- range of elements we have means english and swedish
-            var dataReload = document.querySelectorAll("[data-reload]");
-
-            //Created a variable and its an new json object 
-            //Language Translations
-            var language = {
-                //here eneg is not required because the default lanaguage is English, but it is important to have because 
-                //if somebody actually does try to contribute to our webite, 
-                //They need to know what the langauge is that we are translating.
-                eng: {
-                    Welcome: "WELCOME",
-                    Home: "HOME",
-                    About: "ABOUT US",
-                    Drink: "BEVERAGES",
-                    Chefs: "CHEFS",
-                    Contact: "CONTACTS",
-                    Content: "WELCOME TO FLYING DUTCHMAN",
-                    Content1: "FLYING DUTCHMAN",
-                    Content2: "BAR OF BEER LOVERS OO YES!!",
-                    Order: "ORDER NOW",
-                    Reserve: "RESERVATIONS",
-                },
-
-                swe: {
-                    Welcome: "Välkommen!",
-                    Home: "HEM",
-                    About: "OM OSS",
-                    Drink: "DRYCKER",
-                    Chefs: "KOKAR",
-                    Contact: "KONTAKT",
-                    Content: "VÄLKOMMEN TILL FLYING DUTCHMAN",
-                    //Content1: "FLYING DUTCHMAN",
-                    Content2: "BAR MED ÖLÄLSKARE OO YEHH!!",
-                    Order: "BESTÄLL NU",
-                    Reserve: "RESERVATIONER",
-                }
-            };
-
-            //As our website has a hash so here if statement will detect does our website has a hash or not  
-            //Define language via window hash
-            if (window.location.hash) {
-                if (window.location.hash === "#swe") {
-                    //set the language, istaead of calling document.getElementById  we are calling "id"
-                    welcome.textContent = language.swe.Welcome;
-                    home.textContent = language.swe.Home; //home is id and Home is an label for json bject
-                    about.textContent = language.swe.About;
-                    drinks.textContent = language.swe.Drink;
-                    chefs.textContent = language.swe.Chefs;
-                    contact.textContent = language.swe.Contact;
-                    content.textContent = language.swe.Content;
-                    //content1.textContent = language.swe.Content1;
-                    content2.textContent = language.swe.Content2;
-                    order.textContent = language.swe.Order;
-                    reserve.textContent = language.swe.Reserve;
-
-                }
-            }
-
-            //when we click on the anchor image, it will reload the page
-            //define language reload onclick illiteration
-
-            //dataReload.length:- detects how many elements do we have with selector and we have 2
-            for (i = 0; i < dataReload.length; i++) {
-                dataReload[i].onclick = function() {
-                    location.reload(true);
-                };
-            }
-        </script>
-
 </body>
 
 </html>

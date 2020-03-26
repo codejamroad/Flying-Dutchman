@@ -14,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Slide Down Animation effect for menu -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+<!-- Used API for Flamenco font face-->
 <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/cart.css">  
 
@@ -26,10 +27,11 @@
 
          <div style="float:right;">            
             <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
+              <!--We have created here atttribute "data-reload"-->
             <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
             <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
-           </a>&nbsp;  &nbsp;  &nbsp; 
-            <a href="#"><img src="images/user5.png" width="30px" height="30px"></a><font size="3px">Welcome!&nbsp;&nbsp;</font>
+           &nbsp;  &nbsp;  &nbsp; 
+            <a href="#"><img src="images/user5.png" width="30px" height="30px"></a><font size="3px">Welcome!</font>
         </div>      
     </header>
 <br>
@@ -48,6 +50,7 @@
         </div>                    
          
         <br>    
+         <!--Load the data in the specific div from the Js file in the menu list-->
     <div class="menu" id="wine" style="float:left; padding-top: 20px;"></div>
     <div class="menu" id="beer" style="float:left; padding-top: 20px;"></div>
     <div class="menu" id="spirit" style="float:left; padding-top: 20px;"></div>
@@ -67,6 +70,7 @@
         </table>        
         <hr>
         <br>
+        <!--For the drag and drop menu item onto the cart-->
         <div class="cartContent" id="1" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 400px; "> 
         </div>
          <h2>Drop here to add to cart 
@@ -77,11 +81,17 @@
 </div>
 </section>
 <script>
-    //Define language reload anchors
+    //Define language reload anchors    
+    //if we use only querselector it detects only english because it returns only first element
+    //It dectes the list ;- range of elements we have means english and swedish
     var dataReload = document.querySelectorAll("[data-reload]");
 
-    //Language Translations
-    var language = {
+        //Created a variable and its an new json object 
+        //Language Translations
+        var language = {
+        //here eneg is not required because the default lanaguage is English, but it is important to have because 
+        //if somebody actually does try to contribute to our webite, 
+        //They need to know what the langauge is that we are translating.
     eng: {
         //Login:"Login",
         Wine: "WINE",
@@ -111,10 +121,12 @@
     }
 };
 
-    //Define language via window hash
+    //As our website has a hash so here if statement will detect does our website has a hash or not  
+  //Define language via window hash
     if(window.location.hash){
         if(window.location.hash==="#swe"){
-            //login.textContent = language.swe.Login;                    
+            //login.textContent = language.swe.Login;    
+            //set the language, istaead of calling document.getElementById  we are calling "id"                
             _wine.textContent = language.swe.Wine; 
             _beer.textContent = language.swe.Beer;
             _spicy.textContent = language.swe.Spicy;
@@ -129,7 +141,10 @@
         }
     }
 
+     //when we click on the anchor image, it will reload the page
     //define language reload onclick illiteration
+
+    //dataReload.length:- detects how many elements do we have with selector and we have 2
     for (i=0; i<= dataReload.length;i++){
         dataReload[i].onclick = function(){
             location.reload(true);

@@ -5,7 +5,7 @@
 
    <!-- Slide Down Animation effect for menu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <!--API for font-->
+    <!-- Used API for Flamenco font face-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">     
     <script type="text/javascript" src="JS/language.js"></script>
@@ -18,7 +18,8 @@
                 <div class="row clearfix">
                     <div><br><img src="images/logo.png" class="logo"></div>
                     <div>
-                        <div class="logoimages">                      
+                        <div class="logoimages">             
+                              <!--We have created here atttribute "data-reload"-->         
                             <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
                             <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
                             <img src="images/cart.png" width="40px" height="30px">  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -45,7 +46,7 @@
                 <h1 id="content2">Bar of beer lovers Oo YES!!</h1>   
                 </h1>                
                 <a href="cart.html" class="btn btn-full"><p id="order">Order Now </p></a>
-                <a href="#" class="btn btn-nav"><p id="reserve">Reservations</p></a>
+                <a href="contact.html" class="btn btn-nav"><p id="reserve">Reservations</p></a>
             </div> 
             <div style="width:44%; float: right;">
                 <marquee behavior="slide" direction="left" loop="1">
@@ -55,11 +56,17 @@
         </section>  
         
         <script>
-            //Define language reload anchors
+             //Define language reload anchors
+            //if we use only querselector it detects only english because it returns only first element
+            //It dectes the list ;- range of elements we have means english and swedish
             var dataReload = document.querySelectorAll("[data-reload]");
         
+            //Created a variable and its an new json object 
             //Language Translations
             var language = {
+            //here eneg is not required because the default lanaguage is English, but it is important to have because 
+             //if somebody actually does try to contribute to our webite, 
+            //They need to know what the langauge is that we are translating.
             eng: {
                 Welcome:"WELCOME",
                 Home: "HOME",
@@ -89,9 +96,11 @@
             }
         };
         
+            //As our website has a hash so here if statement will detect does our website has a hash or not  
             //Define language via window hash
             if(window.location.hash){
                 if(window.location.hash==="#swe"){
+                    //set the language, istaead of calling document.getElementById  we are calling "id"
                     welcome.textContent = language.swe.Welcome;
                     home.textContent = language.swe.Home; //home is id and Home is an label for json bject
                     about.textContent = language.swe.About;
@@ -107,7 +116,10 @@
                 }
             }
         
+             //when we click on the anchor image, it will reload the page
             //define language reload onclick illiteration
+
+            //dataReload.length:- detects how many elements do we have with selector and we have 2
             for (i=0; i<= dataReload.length;i++){
                 dataReload[i].onclick = function(){
                     location.reload(true);

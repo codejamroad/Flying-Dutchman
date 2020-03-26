@@ -175,8 +175,8 @@ function getMenuitemList(menuItems, itemToDisplay) {
                 //
                 out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
                 + '" draggable="true" ondragstart="drag(event)">' 
-                + item.name +
-                + '<<span style="font-size: 20px;" class="price">'
+                + item.name
+                + '<span class="price">'
                 + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
                 + item.price + '</span><br></div>';
             }

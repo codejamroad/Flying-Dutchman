@@ -6,18 +6,16 @@
     <!-- Used API for Flamenco font face-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css">
+    <script type="text/javascript" src="js/contact_lng.js"></script>
 </head>
 
 <body>
-
-
-
     <div class="container">
         <a href="home.html"> <img src="images/home2.png " width="30px" height="30px"> </a>
 
         <!--We have created here atttribute "data-reload"-->
-        <a href="contact.html#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-        <a href="contact.html#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+        <a href="#" onclick=lngEn()><img src="images/uk.png" width="25px" height="25px"></a>
+        <a href="#" onclick=lngSe()><img src="images/sweden.png" width="25px" height="25px"></a>
 
         <div style="text-align: center; color: whitesmoke;">
             <h1 id="contact">Contact Us</h1><br>
@@ -34,7 +32,8 @@
                 <h2>
                     <font color="orange">Flying Dutchman Pub</font>
                 </h2> <br><br>
-                <h3>Address : Stationsgatan, 114 35 Stockholm<br><br> Hours : Monday-Friday (10:00 - 21:00) <br> &emsp; &emsp;&emsp;Saturday-Sunday(10:00- 23:30) <br> <br> Phone : +46-555 555 55 </b><br> <br> Email : <i> xyz@gmail.com </i></b>
+                <h3>Address : Stationsgatan, 114 35 Stockholm<br><br> Hours : Monday-Friday (10:00 - 21:00) <br> &emsp; &emsp;&emsp;Saturday-Sunday(10:00- 23:30) <br> <br> Phone : +46-555 555 55 </b><br> <br> Email : <i>
+            xyz@gmail.com </i></b>
                 </h3>
 
             </div>
@@ -57,67 +56,6 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        //Define language reload anchors
-        //if we use only querselector it detects only english because it returns only first element
-        //It dectes the list ;- range of elements we have means english and swedish
-        var dataReload = document.querySelectorAll("[data-reload]");
-
-        //Created a variable and its an new json object 
-        //Language Translations
-        var language = {
-            //here eneg is not required because the default lanaguage is English, but it is important to have because 
-            //if somebody actually does try to contribute to our webite, 
-            //They need to know what the langauge is that we are translating.
-
-            eng: {
-                Contact: "Contact Us",
-                Msg: "Call for booking on given number or leave us a message:",
-                Firstname: "First Name",
-                Lastname: "Last Name",
-                Location1: "Location",
-                Message: "Message",
-
-            },
-
-            swe: {
-                Contact: "Kontakta Oss",
-                Msg: "Ring för bokning på givet nummer eller lämna ett meddelande:",
-                Firstname: "Förnamn",
-                Lastname: "Efternamn",
-                Location1: "Plats",
-                Message: "Meddelande",
-
-            }
-        };
-
-        //As our website has a hash so here if statement will detect does our website has a hash or not  
-        //Define language via window hash
-        if (window.location.hash) {
-            if (window.location.hash === "#swe") {
-                //set the language, istaead of calling document.getElementById  we are calling "id" 
-                contact.textContent = language.swe.Contact;
-                msg.textContent = language.swe.Msg;
-                firstname.textContent = language.swe.Firstname;
-                lastname.textContent = language.swe.Lastname;
-                location1.textContent = language.swe.Location1;
-                message.textContent = language.swe.Message;
-
-            }
-        }
-        //when we click on the anchor image, it will reload the page
-        //define language reload onclick illiteration
-
-        //dataReload.length:- detects how many elements do we have with selector and we have 2
-        for (i = 0; i < dataReload.length; i++) {
-            dataReload[i].onclick = function() {
-                location.reload(true);
-            };
-        }
-    </script>
-
 
 </body>
 

@@ -52,9 +52,9 @@ function drop(ev) {
     //Converting string to int
     price = parseInt(matches[0]);
 
-    nodeCopy.id = "newId";  // We cannot use the same ID. Ideally we should generate the new ID with a
-                            // random or incremental number. This is left as an exercise...
-                            //
+    nodeCopy.id = "newId"; // We cannot use the same ID. Ideally we should generate the new ID with a
+    // random or incremental number. This is left as an exercise...
+    //
 
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
 
@@ -66,15 +66,13 @@ function drop(ev) {
 
     // Replace the content of the order with the new sum
     //
-    document.getElementById("sum").innerHTML = "Total: "+ total + " kr";
+    document.getElementById("sum").innerHTML = "Total: " + total + " kr";
 }
 
-function sumTotal(price, sum)
-{
+function sumTotal(price, sum) {
     return sum + price;
 }
 
 // ===================================================================================================================
 // END OF FILE
 // ===================================================================================================================
-

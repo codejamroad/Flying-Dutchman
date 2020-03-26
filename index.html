@@ -1,110 +1,115 @@
 <html>
-<head>    
+
+<head>
     <title>Flying Dutchman</title>
     <meta charset="UTF-8">
 
-   <!-- Slide Down Animation effect for menu -->
+    <!-- Slide Down Animation effect for menu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-      <!-- Used API for Flamenco font face-->
+    <!-- Used API for Flamenco font face-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">     
-    
+    <link rel="stylesheet" href="css/index.css">
+
 </head>
 
 <body>
-    <div class="background-image"> 
+    <div class="background-image">
         <header>
             <nav>
                 <div class="row clearfix">
                     <div><br><img src="images/logo.png" class="logo"></div>
-                    
-                        <div class="logoimages">       
-                             <!--We have created here atttribute "data-reload"-->                
-                            <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-                            <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
-                            <a href="#"><img src="images/cart.png" width="40px" height="30px"></a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                               
-                            <a href="login.html" id="login" style="color: white; font-size: 22px;">Login</a>
-                         </div>
-                        <div>
-                            <ul class="main-nav animated slideInDown">
-                                <li><a href="index.html"  id="home">Home</a></li>
-                                <li><a href="About Us.html" id="about">About us</a></li>                         
-                                <li><a href="cart.html" id="drinks">Beverages</a></li>
-                                <li><a href="#" id="chefs">Chefs</a></li>
-                                <li><a href="contact.html" id="contact">Contacts</a></li>
-                            </ul>   
-                        </div>                      
+
+                    <div class="logoimages">
+                        <!--We have created here atttribute "data-reload"-->
+                        <a href="index.html#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+                        <a href="index.html#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+                        <a href="#"><img src="images/cart.png" width="40px" height="30px"></a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <a href="login.html" id="login" style="color: white; font-size: 22px;">Login</a>
+                    </div>
+                    <div>
+                        <ul class="main-nav animated slideInDown">
+                            <li><a href="index.html" id="home">Home</a></li>
+                            <li><a href="About Us.html" id="about">About us</a></li>
+                            <li><a href="cart.html" id="drinks">Beverages</a></li>
+                            <li><a href="#" id="chefs">Chefs</a></li>
+                            <li><a href="contact.html" id="contact">Contacts</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </nav> 
+            </nav>
         </header>
-    
-        <section>       
-            <div class="main-content" >                
-                <h1 id="content">Welcome To <span class="colorchange" >Flying Dutchman</span>..</h1><br> 
-                <h1 id="content2">Bar of beer lovers Oo YES!!</h1>   
-                              
-                <a href="cart.html" class="btn btn-full"><p id="order">Order Now </p></a>
-                <a href="#" class="btn btn-nav"><p id="reserve">Reservations</p></a>
-            </div> 
+
+        <section>
+            <div class="main-content">
+                <h1 id="content">Welcome To <span class="colorchange">Flying Dutchman</span>..</h1><br>
+                <h1 id="content2">Bar of beer lovers Oo YES!!</h1>
+
+                <a href="cart.html" class="btn btn-full">
+                    <p id="order">Order Now </p>
+                </a>
+                <a href="#" class="btn btn-nav">
+                    <p id="reserve">Reservations</p>
+                </a>
+            </div>
             <div style="width:44%; float: right;">
                 <marquee behavior="slide" direction="left" loop="1">
                     <img src="images\b.png" width="250px" height="250px">
                 </marquee>
-            </div>         
-        </section>  
-        
+            </div>
+        </section>
+
         <script>
             //Define language reload anchors
             //if we use only querselector it detects only english because it returns only first element
             //It dectes the list ;- range of elements we have means english and swedish
             var dataReload = document.querySelectorAll("[data-reload]");
-        
+
             //Created a variable and its an new json object 
             //Language Translations
             var language = {
-            //here eneg is not required because the default lanaguage is English, but it is important to have because 
-             //if somebody actually does try to contribute to our webite, 
-            //They need to know what the langauge is that we are translating.
-            eng: {
-                Login:"Login",
-                Home: "HOME",
-                About: "ABOUT US",
-                Drink: "BEVERAGES",               
-                Chefs: "CHEFS",
-                Contact:"CONTACTS",
-                Content: "WELCOME TO FLYING DUTCHMAN..",
-                //Content1: "FLYING DUTCHMAN ..",
-                Content2: "BAR OF BEER LOVERS OO YES!!",
-                Order: "ORDER NOW",
-                Reserve: "RESERVATIONS",            
-            },
+                //here eneg is not required because the default lanaguage is English, but it is important to have because 
+                //if somebody actually does try to contribute to our webite, 
+                //They need to know what the langauge is that we are translating.
+                eng: {
+                    Login: "Login",
+                    Home: "HOME",
+                    About: "ABOUT US",
+                    Drink: "BEVERAGES",
+                    Chefs: "CHEFS",
+                    Contact: "CONTACTS",
+                    Content: "WELCOME TO FLYING DUTCHMAN..",
+                    //Content1: "FLYING DUTCHMAN ..",
+                    Content2: "BAR OF BEER LOVERS OO YES!!",
+                    Order: "ORDER NOW",
+                    Reserve: "RESERVATIONS",
+                },
 
-            swe: {
-            Login:"Logga In",           
-            Home: "HEM",
-            About: "OM OSS",
-            Drink: "DRYCKER",
-            Chefs: "KOKAR",
-            Contact:"KONTAKT",
-            Content: "VÄLKOMMEN TILL FLYING DUTCHMAN..",
-            //Content1: "FLYING DUTCHMAN..",
-            Content2: "BAR MED ÖLÄLSKARE OO YEHH!!",
-            Order: "BESTÄLL NU",
-            Reserve: "RESERVATIONER",
-            }
-        };
-        
+                swe: {
+                    Login: "Logga In",
+                    Home: "HEM",
+                    About: "OM OSS",
+                    Drink: "DRYCKER",
+                    Chefs: "KOKAR",
+                    Contact: "KONTAKT",
+                    Content: "VÄLKOMMEN TILL FLYING DUTCHMAN..",
+                    //Content1: "FLYING DUTCHMAN..",
+                    Content2: "BAR MED ÖLÄLSKARE OO YEHH!!",
+                    Order: "BESTÄLL NU",
+                    Reserve: "RESERVATIONER",
+                }
+            };
+
             //As our website has a hash so here if statement will detect does our website has a hash or not  
             //Define language via window hash
-            if(window.location.hash){
-                if(window.location.hash==="#swe"){
-                    login.textContent = language.swe.Login;                    
+            if (window.location.hash) {
+                if (window.location.hash === "#swe") {
+                    login.textContent = language.swe.Login;
                     home.textContent = language.swe.Home; //home is id and Home is an label for json bject
                     about.textContent = language.swe.About;
                     drinks.textContent = language.swe.Drink;
                     chefs.textContent = language.swe.Chefs;
-                    contact.textContent = language.swe.Contact;       
+                    contact.textContent = language.swe.Contact;
                     content.textContent = language.swe.Content;
                     //content1.textContent = language.swe.Content1;
                     content2.textContent = language.swe.Content2;
@@ -112,18 +117,18 @@
                     reserve.textContent = language.swe.Reserve;
                 }
             };
-        
-             //when we click on the anchor image, it will reload the page
+
+            //when we click on the anchor image, it will reload the page
             //define language reload onclick illiteration
 
-             //dataReload.length:- detects how many elements do we have with selector and we have 2
-            for (i=0; i < dataReload.length;i++){
-                dataReload[i].onclick = function(){
+            //dataReload.length:- detects how many elements do we have with selector and we have 2
+            for (i = 0; i < dataReload.length; i++) {
+                dataReload[i].onclick = function() {
                     location.reload(true);
                 };
             }
         </script>
-   
-</body> 
-</html>
 
+</body>
+
+</html>

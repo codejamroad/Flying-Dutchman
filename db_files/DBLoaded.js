@@ -1,6 +1,5 @@
 var DB = {
-    "users": [
-        {
+    "users": [{
             "user_id": "2",
             "credentials": "0",
             "password": "b690bc2447d40ea8a6f78345eb979a28",
@@ -671,106 +670,105 @@ var DB = {
             "phone": "0703913087"
         }
     ],
-    "bought":
-        [{
-            "transaction_id": "328",
-            "admin_id": "25",
-            "beer_id": "1152803",
-            "amount": "4",
-            "price": "24.90",
-            "timestamp": "2014-10-02 16:05:21"
-        }, {
-            "transaction_id": "329",
-            "admin_id": "25",
-            "beer_id": "1128101",
-            "amount": "2",
-            "price": "20.60",
-            "timestamp": "2014-10-02 16:05:33"
-        }, {
-            "transaction_id": "330",
-            "admin_id": "25",
-            "beer_id": "1125001",
-            "amount": "2",
-            "price": "21.90",
-            "timestamp": "2014-10-02 16:05:43"
-        }, {
-            "transaction_id": "331",
-            "admin_id": "25",
-            "beer_id": "157701",
-            "amount": "1",
-            "price": "36.30",
-            "timestamp": "2014-10-02 16:05:56"
-        }, {
-            "transaction_id": "332",
-            "admin_id": "25",
-            "beer_id": "1129801",
-            "amount": "2",
-            "price": "19.90",
-            "timestamp": "2014-10-02 16:06:07"
-        }, {
-            "transaction_id": "333",
-            "admin_id": "25",
-            "beer_id": "151503",
-            "amount": "24",
-            "price": "21.40",
-            "timestamp": "2014-10-02 16:06:17"
-        }, {
-            "transaction_id": "334",
-            "admin_id": "25",
-            "beer_id": "1120801",
-            "amount": "1",
-            "price": "21.90",
-            "timestamp": "2014-10-02 16:06:28"
-        }, {
-            "transaction_id": "335",
-            "admin_id": "25",
-            "beer_id": "155701",
-            "amount": "1",
-            "price": "20.90",
-            "timestamp": "2014-10-02 16:06:40"
-        }, {
-            "transaction_id": "336",
-            "admin_id": "25",
-            "beer_id": "168701",
-            "amount": "1",
-            "price": "21.90",
-            "timestamp": "2014-10-02 16:06:50"
-        }, {
-            "transaction_id": "337",
-            "admin_id": "25",
-            "beer_id": "148001",
-            "amount": "2",
-            "price": "15.40",
-            "timestamp": "2014-10-02 16:07:06"
-        }, {
-            "transaction_id": "338",
-            "admin_id": "25",
-            "beer_id": "137901",
-            "amount": "3",
-            "price": "17.50",
-            "timestamp": "2014-10-02 16:07:15"
-        }, {
-            "transaction_id": "339",
-            "admin_id": "25",
-            "beer_id": "1134103",
-            "amount": "2",
-            "price": "13.50",
-            "timestamp": "2014-10-02 16:07:26"
-        }, {
-            "transaction_id": "340",
-            "admin_id": "25",
-            "beer_id": "167903",
-            "amount": "3",
-            "price": "16.40",
-            "timestamp": "2014-10-02 16:07:37"
-        }, {
-            "transaction_id": "341",
-            "admin_id": "25",
-            "beer_id": "196303",
-            "amount": "2",
-            "price": "22.50",
-            "timestamp": "2014-10-02 16:07:46"
-        }],
+    "bought": [{
+        "transaction_id": "328",
+        "admin_id": "25",
+        "beer_id": "1152803",
+        "amount": "4",
+        "price": "24.90",
+        "timestamp": "2014-10-02 16:05:21"
+    }, {
+        "transaction_id": "329",
+        "admin_id": "25",
+        "beer_id": "1128101",
+        "amount": "2",
+        "price": "20.60",
+        "timestamp": "2014-10-02 16:05:33"
+    }, {
+        "transaction_id": "330",
+        "admin_id": "25",
+        "beer_id": "1125001",
+        "amount": "2",
+        "price": "21.90",
+        "timestamp": "2014-10-02 16:05:43"
+    }, {
+        "transaction_id": "331",
+        "admin_id": "25",
+        "beer_id": "157701",
+        "amount": "1",
+        "price": "36.30",
+        "timestamp": "2014-10-02 16:05:56"
+    }, {
+        "transaction_id": "332",
+        "admin_id": "25",
+        "beer_id": "1129801",
+        "amount": "2",
+        "price": "19.90",
+        "timestamp": "2014-10-02 16:06:07"
+    }, {
+        "transaction_id": "333",
+        "admin_id": "25",
+        "beer_id": "151503",
+        "amount": "24",
+        "price": "21.40",
+        "timestamp": "2014-10-02 16:06:17"
+    }, {
+        "transaction_id": "334",
+        "admin_id": "25",
+        "beer_id": "1120801",
+        "amount": "1",
+        "price": "21.90",
+        "timestamp": "2014-10-02 16:06:28"
+    }, {
+        "transaction_id": "335",
+        "admin_id": "25",
+        "beer_id": "155701",
+        "amount": "1",
+        "price": "20.90",
+        "timestamp": "2014-10-02 16:06:40"
+    }, {
+        "transaction_id": "336",
+        "admin_id": "25",
+        "beer_id": "168701",
+        "amount": "1",
+        "price": "21.90",
+        "timestamp": "2014-10-02 16:06:50"
+    }, {
+        "transaction_id": "337",
+        "admin_id": "25",
+        "beer_id": "148001",
+        "amount": "2",
+        "price": "15.40",
+        "timestamp": "2014-10-02 16:07:06"
+    }, {
+        "transaction_id": "338",
+        "admin_id": "25",
+        "beer_id": "137901",
+        "amount": "3",
+        "price": "17.50",
+        "timestamp": "2014-10-02 16:07:15"
+    }, {
+        "transaction_id": "339",
+        "admin_id": "25",
+        "beer_id": "1134103",
+        "amount": "2",
+        "price": "13.50",
+        "timestamp": "2014-10-02 16:07:26"
+    }, {
+        "transaction_id": "340",
+        "admin_id": "25",
+        "beer_id": "167903",
+        "amount": "3",
+        "price": "16.40",
+        "timestamp": "2014-10-02 16:07:37"
+    }, {
+        "transaction_id": "341",
+        "admin_id": "25",
+        "beer_id": "196303",
+        "amount": "2",
+        "price": "22.50",
+        "timestamp": "2014-10-02 16:07:46"
+    }],
     "sold": [{
         "transaction_id": "1186",
         "user_id": "2",
@@ -877,274 +875,273 @@ var DB = {
         "beer_id": "151503",
         "timestamp": "2014-10-15 22:57:38"
     }],
-    "account": [
-        {
+    "account": [{
             "user_id": "2",
-            "creditSEK" : "300"
+            "creditSEK": "300"
         },
         {
             "user_id": "28",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "27",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "26",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "25",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "24",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "23",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "22",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "21",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "20",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "19",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "18",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "17",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "16",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "29",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "30",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "31",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "32",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "33",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "34",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "35",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "36",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "37",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "38",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "39",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "40",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "41",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "42",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "43",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "44",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "45",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "46",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "47",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "48",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "49",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "50",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "51",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "52",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "53",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "54",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "55",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "56",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "57",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "58",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "59",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "65",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "64",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "62",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "63",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "66",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "67",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "68",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "69",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "70",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "71",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "72",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "73",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "74",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "75",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "76",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "77",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "78",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "79",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "80",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "81",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "82",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         },
         {
             "user_id": "83",
-            "creditSEK" : "450"
+            "creditSEK": "450"
         }
     ]
 };

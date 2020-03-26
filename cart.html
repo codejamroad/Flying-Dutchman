@@ -1,157 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<title>Cart</title>
+    <title>Cart</title>
 
-<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/myHandler.js"></script>
-<script type="text/javascript" src="js/dataContract.js"></script>
-<script type="text/javascript" src="js/drop.js"></script>
-<script type="text/javascript" src="db_files/Beverages_eng.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/myHandler.js"></script>
+    <script type="text/javascript" src="js/dataContract.js"></script>
+    <script type="text/javascript" src="js/drop.js"></script>
+    <script type="text/javascript" src="db_files/Beverages_eng.js"></script>
+    <script type="text/javascript" src="js/LanguageResource.js"></script>
+    <script type="text/javascript" src="js/cart_lng.js"></script>
 
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Slide Down Animation effect for menu -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-<!-- Used API for Flamenco font face-->
-<link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/cart.css">  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Slide Down Animation effect for menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Used API for Flamenco font face-->
+    <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
 
 </head>
 
 <body>
-<div class="background-image"> 
-    <header>            
-        <div><br><img src="images/logo.png" class="logo"></div>        
+    <div class="background-image">
+        <header>
+            <div><br><img src="images/logo.png" class="logo"></div>
 
-         <div style="float:right;">            
-            <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
-              <!--We have created here atttribute "data-reload"-->
-            <a href="#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-            <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
-           &nbsp;  &nbsp;  &nbsp; 
-            <a href="#"><img src="images/user5.png" width="30px" height="30px"></a><font size="3px">Welcome!</font>
-        </div>      
-    </header>
-<br>
-
-<section>
-    <div style="width: 70%; height: 550px; padding-top: 5px;" class="row clearfix">     
-        <div style="float:left;">
-           
-            <ul class="main-nav animated slideInDown" id="mtabs">
-                <li id="wines"><a href="#" id="_wine">Wine</a></li>
-                <li id="beers"><a href="#" id="_beer">Beer</a></li>                         
-                <li id="spirits"><a href="#" id="_spicy">Spicy Spirits</a></li>
-                <li id="whiskys"><a href="#" id="_whiskey">Whiskey</a></li>
-                <li><a href="#" id="_special">Special Drinks</a></li>                    
-            </ul>                     
-        </div>                    
-         
-        <br>    
-         <!--Load the data in the specific div from the Js file in the menu list-->
-    <div class="menu" id="wine" style="float:left; padding-top: 20px;"></div>
-    <div class="menu" id="beer" style="float:left; padding-top: 20px;"></div>
-    <div class="menu" id="spirit" style="float:left; padding-top: 20px;"></div>
-    <div class="menu" id="whisky" style="float:left; padding-top: 20px;"></div>         
-    </div> 
-    <div class="cartform" >
-        <font size="4px" id="cart">Cart</font>
-        <img src="images/cart.png" width="40px" height="40px" >       
-        <table style="width:300px;height:auto;">
-            <thead>
-                <tr>
-                    <th field="name" id="name">Name</th>
-                    <!--<th field="quantity" id="quantity">Quantity</th>-->
-                    <th field="price" id="price">Price</th>
-                </tr>
-            </thead>
-        </table>        
-        <hr>
+            <div id="home_id" lang="" style="float:right;">
+                <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
+                    <!--We have created here atttribute "data-reload"-->
+                    <a href="#" onclick=lngEn()><img src="images/uk.png" width="25px" height="25px"></a>
+                    <a href="#" onclick=lngSe()><img src="images/sweden.png" width="25px" height="25px"></a>
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="#"><img src="images/user5.png" width="30px" height="30px"></a>
+                    <font size="3px">Welcome!</font>
+            </div>
+        </header>
         <br>
-        <!--For the drag and drop menu item onto the cart-->
-        <div class="cartContent" id="1" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 400px; "> 
-        </div>
-         <h2>Drop here to add to cart 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="checkout.html" class="btn btn-full">CHECKOUT</a></h2>
-        <p id= sum class="total">Total: kr</p>       
 
-</div>
-</section>
-<script>
-    //Define language reload anchors    
-    //if we use only querselector it detects only english because it returns only first element
-    //It dectes the list ;- range of elements we have means english and swedish
-    var dataReload = document.querySelectorAll("[data-reload]");
+        <section>
+            <div style="width: 70%; height: 550px; padding-top: 5px;" class="row clearfix">
+                <div style="float:left;">
 
-        //Created a variable and its an new json object 
-        //Language Translations
-        var language = {
-        //here eneg is not required because the default lanaguage is English, but it is important to have because 
-        //if somebody actually does try to contribute to our webite, 
-        //They need to know what the langauge is that we are translating.
-    eng: {
-        //Login:"Login",
-        Wine: "WINE",
-        Beer: "BEER",
-        Spicy: "SPICY SPIRITS",               
-        Whiskey: "WHISKEY",
-        Special:"SPECIAL DRINKS",
-        Price: "PRICE",
-        //Content1: "FLYING DUTCHMAN ..",
-        Name: "Name",
-        //Quantity: "Quantity",
-        Price1: "Price",            
-    },
+                    <ul class="main-nav animated slideInDown" id="mtabs">
+                        <li id="wines"><a href="#" id="_wine">Wine</a></li>
+                        <li id="beers"><a href="#" id="_beer">Beer</a></li>
+                        <li id="spirits"><a href="#" id="_spicy">Spicy Spirits</a></li>
+                        <li id="whiskys"><a href="#" id="_whiskey">Whiskey</a></li>
+                        <li><a href="#" id="_special">Special Drinks</a></li>
+                    </ul>
+                </div>
 
-    swe: {
-        //Login:"Logga In",           
-        Wine: "VIN",
-        Beer: "ÖL",
-        Spicy: "KRYDDIG SPIRITS",               
-        Whiskey: "WHISKY",
-        Special:"SPECIAL DRYCKER",
-        Price: "PRIS",
-        //Content1: "FLYING DUTCHMAN ..",
-        Name: "Namn",
-        //Quantity: "Kvantiet",
-        Price1: "Pris",  
-    }
-};
+                <br>
+                <!--Load the data in the specific div from the Js file in the menu list-->
+                <div class="menu" id="wine" style="float:left; padding-top: 20px;"></div>
+                <div class="menu" id="beer" style="float:left; padding-top: 20px;"></div>
+                <div class="menu" id="spirit" style="float:left; padding-top: 20px;"></div>
+                <div class="menu" id="whisky" style="float:left; padding-top: 20px;"></div>
+            </div>
+            <div class="cartform">
+                <font size="4px" id="cart">Cart</font>
+                <img src="images/cart.png" width="40px" height="40px">
+                <table style="width:300px;height:auto;">
+                    <thead>
+                        <tr>
+                            <th field="name" id="name">Name</th>
+                            <!--<th field="quantity" id="quantity">Quantity</th>-->
+                            <th field="price" id="price">Price</th>
+                        </tr>
+                    </thead>
+                </table>
+                <hr>
+                <br>
+                <!--For the drag and drop menu item onto the cart-->
+                <div class="cartContent" id="1" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 400px; ">
+                </div>
+                <h2>Drop here to add to cart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="checkout.html" class="btn btn-full">CHECKOUT</a></h2>
+                <p id=sum class="total">Total: kr</p>
 
-    //As our website has a hash so here if statement will detect does our website has a hash or not  
-  //Define language via window hash
-    if(window.location.hash){
-        if(window.location.hash==="#swe"){
-            //login.textContent = language.swe.Login;    
-            //set the language, istaead of calling document.getElementById  we are calling "id"                
-            _wine.textContent = language.swe.Wine; 
-            _beer.textContent = language.swe.Beer;
-            _spicy.textContent = language.swe.Spicy;
-            _whiskey.textContent = language.swe.Whiskey;
-            _special.textContent = language.swe.Special;       
-            _price.textContent = language.swe.Price;
-            //content1.textContent = language.swe.Content1;
-            //content2.textContent = language.swe.Content2;
-            name.textContent = language.swe.Name;
-            price.textContent = language.swe.Price1;
-
-        }
-    }
-
-     //when we click on the anchor image, it will reload the page
-    //define language reload onclick illiteration
-
-    //dataReload.length:- detects how many elements do we have with selector and we have 2
-    for (i=0; i< dataReload.length;i++){
-        dataReload[i].onclick = function(){
-            location.reload(true);
-        };
-    }
-</script>  
-</div>
-
+            </div>
+        </section>
 </body>
+
 </html>

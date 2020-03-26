@@ -1,147 +1,162 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body {            
-    background-color:rgb(218, 145, 72);   
-    color:white;   /*Font color*/
-    font-size: 20px;   
-    /*overflow-x: hidden;*/ 
-    font-family: 'Flamenco', cursive,Arial, Helvetica, sans-serif;   
+
+body {
+    background-color: rgb(218, 145, 72);
+    color: white;
+    /*Font color*/
+    font-size: 20px;
+    /*overflow-x: hidden;*/
+    font-family: 'Flamenco', cursive, Arial, Helvetica, sans-serif;
     padding: 0px;
-    margin: 0;    
-    }
+    margin: 0;
+}
 
 .background-image {
-    background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("../images/4.jpg");
-    background-color: #cccccc;    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/4.jpg");
+    background-color: #cccccc;
     height: 100%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;        
+    position: relative;
 }
 
-header {       
+header {
     color: white;
     height: 50px;
 }
-.clearfix:after{
-    content:".";
-    visibility: hidden ;
-    display: block; /*show content in 1 line*/
+
+.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    /*show content in 1 line*/
     height: 0px;
     clear: both;
 }
-.row{
-    max-width: 1180px; /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attribute*/
-    margin: 0 auto; /*Aways in centre*/
+
+.row {
+    max-width: 1180px;
+    /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attribute*/
+    margin: 0 auto;
+    /*Aways in centre*/
 }
-.logo{
+
+.logo {
     height: 70px;
     width: auto;
     float: left;
     margin-top: 0px;
 }
-.main-nav{
+
+.main-nav {
     float: left;
     margin-top: 1px;
 }
 
-.main-nav li{
-    display:inline-block;
-    list-style:none; /*Remove bullets*/
+.main-nav li {
+    display: inline-block;
+    list-style: none;
+    /*Remove bullets*/
     margin-left: 30px;
 }
 
-.main-nav li a{
-    padding: 5px,0px;
+.main-nav li a {
+    padding: 5px, 0px;
     color: #fff;
-    text-decoration: none; /*Remove underline from nchor tags*/
+    text-decoration: none;
+    /*Remove underline from nchor tags*/
     text-transform: uppercase;
-    font-size: 90%; 
+    font-size: 90%;
     font-weight: 100;
 }
 
-.main-nav li a:hover{
+.main-nav li a:hover {
     border-bottom: 2px solid rgb(236, 158, 79);
 }
 
+
 /* Container for flexboxes */
+
 section {
     display: -webkit-flex;
     display: flex;
-  }
-  
+}
+
+
 /* Style the navigation menu */
+
 nav {
     -webkit-flex: 1;
     -ms-flex: 1;
-    flex: 1;  
+    flex: 1;
     padding: 20px;
-  }
-  
-  
-  /* Style the content */
-  article {
+}
+
+
+/* Style the content */
+
+article {
     -webkit-flex: 3;
     -ms-flex: 3;
-    flex: 3;  
+    flex: 3;
     padding: 10px;
-  }
-  
-  
-  /* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-  @media (max-width: 600px) {
+}
+
+
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+
+@media (max-width: 600px) {
     section {
-      -webkit-flex-direction: column;
-      flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
     }
-  }
-
-
-  .cart{
-    position:fixed;
-    right:0;
-    top:0;
-    width:300px;
-    height:100%;
-    background:#ccc;
-    padding:0px 10px;
 }
-h1{
-    text-align:center;
-    color:#555;
+
+.cart {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #ccc;
+    padding: 0px 10px;
 }
-h2{
-    position:absolute;
-    font-size:16px;
+
+h1 {
+    text-align: center;
+    color: #555;
+}
+
+h2 {
+    position: absolute;
+    font-size: 16px;
     /*left:10px;*/
-    bottom:20px;
-    color:#555;
-}
-.total{
-    /*margin:0;*/
-    text-align:left;
-    padding :20px;
-    position:absolute;
-    bottom:80px;
+    bottom: 20px;
+    color: #555;
 }
 
-.cartform{    
+.total {
+    /*margin:0;*/
+    text-align: left;
+    padding: 20px;
+    position: absolute;
+    bottom: 80px;
+}
+
+.cartform {
     background-color: rgb(141, 101, 60);
-    float:left; 
-    width: 25%; 
-    margin-top:10px; 
-    border-radius: 10px; 
-    border-style: solid; 
-    text-align: center; 
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    text-align: center;
     padding: 10px;
     font-size: 15px;
-
 }
-
-  
- 

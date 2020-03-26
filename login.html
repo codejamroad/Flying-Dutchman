@@ -1,123 +1,124 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <meta charset="utf-8">    
+    <meta charset="utf-8">
     <title>Flying Dutchman</title>
-    <link rel="stylesheet" href="css/login.css">    
-    <script type="text/javascript" src="db_files/DBLoaded.js"></script>   
+    <link rel="stylesheet" href="css/login.css">
+    <script type="text/javascript" src="db_files/DBLoaded.js"></script>
 </head>
+
 <body>
     <script>
-		function user_validate(){  
-           
-			var UserName = document.getElementById("user_name").value;  /* get the username from the html form and assign to variable UserName*/
-			var PassWord = document.getElementById("pass_word").value;  /* get the password from the html form and assign to variable PassWord*/
-			var UserData = DB.users; /*get the all user data from DBLoaded.js file and assign to UserData*/
-			var userFound = false;
-            
+        function user_validate() {
+
+            var UserName = document.getElementById("user_name").value; /* get the username from the html form and assign to variable UserName*/
+            var PassWord = document.getElementById("pass_word").value; /* get the password from the html form and assign to variable PassWord*/
+            var UserData = DB.users; /*get the all user data from DBLoaded.js file and assign to UserData*/
+            var userFound = false;
+
             /*Validate the username and password*/
             /*password": "b690bc2447d40ea8a6f78345eb979a28", "username": "jorass"*/
-            
-	        for(var i = 0; i < UserData.length; i++){
-	        	if(UserData[i].username == UserName && UserData[i].password == PassWord){
-	        		userFound = true;
-	        	}
-	        }
-            
+
+            for (var i = 0; i < UserData.length; i++) {
+                if (UserData[i].username == UserName && UserData[i].password == PassWord) {
+                    userFound = true;
+                }
+            }
+
             /*userfound is true then redirect to the index page otherwise display alertbox for invalid details*/
 
-	        if(userFound){
-	        	localStorage.setItem("loggedUser", UserName); /*set the value of a specified local storage item*/
+            if (userFound) {
+                localStorage.setItem("loggedUser", UserName); /*set the value of a specified local storage item*/
                 document.location.href = "home.html";
 
                 /*location.href:-return href property and document.location:-read-only property returns a Location object,
                  which contains information about the URL of the document and provides methods for changing that URL and loading another URL.*/
                 /*console.log(document.location.href); */
-                
-	        }else{
-                alert("Invalid Username/Password");                
-	        }
-	        
-		}
-    </script>
-    
-    <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
-    <!--We have created here atttribute "data-reload"-->
-    <a href="#eng"  data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-    <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
-    <div class="loginbox">
-        <img src="images/user2.png" class="avtar">
-        <h1 id="login">Login Here</h1>
 
-        <form action="javascript:user_validate();" method="post">
-            <p id="username"> Username</p>
-            <input type="text" name="uname" placeholder="Enter Username" id="user_name" required>
-            <p id="password"> Password</p>
-            <input type="password" name="psswrd" placeholder="Enter Password" id="pass_word" required>
-            <input type="submit" name="" value="Log In" id="log">
-
-            <a href="#" id="forget"> Forget Password</a><br>
-            
-        </form>
-    </div>
-    <script>
-
-        //Define language reload anchors
-        //if we use only querselector it detects only english because it returns only first element
-        //It dectes the list ;- range of elements we have means english and swedish
-        var dataReload = document.querySelectorAll("[data-reload]");
-    
-        //Created a variable and its an new json object 
-        //Language Translations
-        var language = {
-        //here eneg is not required because the default lanaguage is English, but it is important to have because 
-        //if somebody actually does try to contribute to our webite, 
-        //They need to know what the langauge is that we are translating.
-        
-        eng: {               
-            Login: "Login Here",
-            Username: "Username",
-            Password: "Password", 
-            //Log: "Login",               
-            Forget: "Forget Password",                             
-        },
-
-        swe: {            
-            Login: "Login Here",
-            Username: "Användarnamn",
-            Password: "Lösenord",   
-            //Log: "Loggain",            
-            Forget: "Glöm Lösenord", 
-        }
-    };
-    
-        //As our website has a hash so here if statement will detect does our website has a hash or not  
-        //Define language via window hash
-        if(window.location.hash){
-            if(window.location.hash==="#swe"){
-               //set the language, istaead of calling document.getElementById  we are calling "id"
-                login.textContent = language.swe.Login; //home is id and Home is an label for json bject
-                username.textContent = language.swe.Username;
-                password.textContent = language.swe.Password;
-                //log.textContent = language.swe.Log;
-                forget.textContent = language.swe.Forget;          
-
+            } else {
+                alert("Invalid Username/Password");
             }
-        }
-    
-         //when we click on the anchor image, it will reload the page
-        //define language reload onclick illiteration
 
-        //dataReload.length:- detects how many elements do we have with selector and we have 2
-        for (i=0; i < dataReload.length;i++){
-            dataReload[i].onclick = function(){
-                location.reload(true);
-            };
         }
     </script>
+
+    <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
+        <!--We have created here atttribute "data-reload"-->
+        <a href="login.html#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+        <a href="#login.html#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+        <div class="loginbox">
+            <img src="images/user2.png" class="avtar">
+            <h1 id="login">Login Here</h1>
+
+            <form action="javascript:user_validate();" method="post">
+                <p id="username"> Username</p>
+                <input type="text" name="uname" placeholder="Enter Username" id="user_name" required>
+                <p id="password"> Password</p>
+                <input type="password" name="psswrd" placeholder="Enter Password" id="pass_word" required>
+                <input type="submit" name="" value="Log In" id="log">
+
+                <a href="#" id="forget"> Forgot Password</a><br>
+
+            </form>
+        </div>
+        <script>
+            //Define language reload anchors
+            //if we use only querselector it detects only english because it returns only first element
+            //It dectes the list ;- range of elements we have means english and swedish
+            var dataReload = document.querySelectorAll("[data-reload]");
+
+            //Created a variable and its an new json object 
+            //Language Translations
+            var language = {
+                //here eneg is not required because the default lanaguage is English, but it is important to have because 
+                //if somebody actually does try to contribute to our webite, 
+                //They need to know what the langauge is that we are translating.
+
+                eng: {
+                    Login: "Login Here",
+                    Username: "Username",
+                    Password: "Password",
+                    //Log: "Login",               
+                    Forget: "Forget Password",
+                },
+
+                swe: {
+                    Login: "Login Here",
+                    Username: "Användarnamn",
+                    Password: "Lösenord",
+                    //Log: "Loggain",            
+                    Forget: "Glöm Lösenord",
+                }
+            };
+
+            //As our website has a hash so here if statement will detect does our website has a hash or not  
+            //Define language via window hash
+            if (window.location.hash) {
+                if (window.location.hash === "#swe") {
+                    //set the language, istaead of calling document.getElementById  we are calling "id"
+                    login.textContent = language.swe.Login; //home is id and Home is an label for json bject
+                    username.textContent = language.swe.Username;
+                    password.textContent = language.swe.Password;
+                    //log.textContent = language.swe.Log;
+                    forget.textContent = language.swe.Forget;
+
+                }
+            }
+
+            //when we click on the anchor image, it will reload the page
+            //define language reload onclick illiteration
+
+            //dataReload.length:- detects how many elements do we have with selector and we have 2
+            for (i = 0; i < dataReload.length; i++) {
+                dataReload[i].onclick = function() {
+                    location.reload(true);
+                };
+            }
+        </script>
 
 
 </body>
-</html>
 
+</html>

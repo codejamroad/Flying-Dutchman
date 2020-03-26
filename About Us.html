@@ -1,116 +1,114 @@
 <html>
-<head>    
+
+<head>
     <title>Flying Dutchman</title>
 
-   <!-- Slide Down Animation effect for menu -->
+    <!-- Slide Down Animation effect for menu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <!-- Used API for Flamenco font face-->
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">     
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
-    <div class="background-image"> 
+    <div class="background-image">
         <header>
             <nav>
                 <div class="row clearfix">
                     <div><br><img src="images/logo.png" class="logo"></div>
-                    
+
                     <div class="logoimages">
                         <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
 
-                        <!--We have created here atttribute "data-reload"-->
-                        <a href="#eng"  data-reload><img src="images/uk.png" width="25px" height="25px"></a>
-                        <a href="#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
-                          &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                            <!--We have created here atttribute "data-reload"-->
+                            <a href="About Us.html#eng" data-reload><img src="images/uk.png" width="25px" height="25px"></a>
+                            <a href="About Us.html#swe" data-reload><img src="images/sweden.png" width="25px" height="25px"></a>
+                            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                     <div>
                         <ul class="main-nav animated slideInDown">
                             <ul class="main-nav animated slideInDown">
-                                <li><a href="home.html"  id="home">Home</a></li>
-                                <li><a href="About Us.html" id="about" class="current">About us</a></li>                         
+                                <li><a href="home.html" id="home">Home</a></li>
+                                <li><a href="About Us.html" id="about" class="current">About us</a></li>
                                 <li><a href="cart.html" id="drinks">Beverages</a></li>
                                 <li><a href="#" id="chefs">Chefs</a></li>
                                 <li><a href="contact.html" id="contact">Contacts</a></li>
-                            </ul>                         
-                        </ul>   
-                     </div>  
-                   
-                </div>
-            </nav> 
-        </header>
-    
-        <section>       
-            <div class="main-content">                
-                <!--<h1><u <span class="colorchange">About-Us</span></u><br></h1>  -->              
-                <p id="bodycontent">Visiting our 18 year old Pub here on Stationsgatan, which over the years has become Märsta's pub, is a wonderful way 
-                    to lift everyday life. All the pubs and restaurants down here in the neighborhood complement each other and create a 
-                    wonderful atmosphere throughout the area. The competition is positive and contributes to the regular and new guests 
-                    being happy and positive.
-                </p>
-            </div>                 
-        </section>      
-        
-        <script>
+                            </ul>
+                        </ul>
+                    </div>
 
+                </div>
+            </nav>
+        </header>
+
+        <section>
+            <div class="main-content">
+                <!--<h1><u <span class="colorchange">About-Us</span></u><br></h1>  -->
+                <p id="bodycontent">Visiting our 18 year old Pub here on Stationsgatan, which over the years has become Märsta's pub, is a wonderful way to lift everyday life. All the pubs and restaurants down here in the neighborhood complement each other and create a wonderful
+                    atmosphere throughout the area. The competition is positive and contributes to the regular and new guests being happy and positive.
+                </p>
+            </div>
+        </section>
+
+        <script>
             //Define language reload anchors
             //if we use only querselector it detects only english because it returns only first element
             //It dectes the list ;- range of elements we have means english and swedish
             var dataReload = document.querySelectorAll("[data-reload]");
-        
+
             //Created a variable and its an new json object 
             //Language Translations
             var language = {
-            //here eneg is not required because the default lanaguage is English, but it is important to have because 
-            //if somebody actually does try to contribute to our webite, 
-            //They need to know what the langauge is that we are translating.
-            
-            eng: {               
-                Home: "HOME",
-                About: "ABOUT US",
-                Drink: "BEVERAGES",               
-                Chefs: "CHEFS",
-                Contact:"CONTACTS",      
-                                  
-            },
+                //here eneg is not required because the default lanaguage is English, but it is important to have because 
+                //if somebody actually does try to contribute to our webite, 
+                //They need to know what the langauge is that we are translating.
 
-            swe: {            
-            Home: "HEM",
-            About: "OM OSS",
-            Drink: "DRYCKER",
-            Chefs: "KOKAR",
-            Contact:"KONTAKT",
-            Bodycontent: "Att gästa vår 18 år gamla Pub här på Stationsgatan, som med åren har blivit Märstas krogstråk, är ett härligt sätt att lyfta vardagen. Alla krogar och restauranger i här nere i grannskapet kompletterar varandra och skapar en härlig stämning i hela området. Konkurrensen är positiv och bidrar till att stamgäster och nya gäster är glada och positiva." ,
-           
-            }
-        };
-        
+                eng: {
+                    Home: "HOME",
+                    About: "ABOUT US",
+                    Drink: "BEVERAGES",
+                    Chefs: "CHEFS",
+                    Contact: "CONTACTS",
+
+                },
+
+                swe: {
+                    Home: "HEM",
+                    About: "OM OSS",
+                    Drink: "DRYCKER",
+                    Chefs: "KOKAR",
+                    Contact: "KONTAKT",
+                    Bodycontent: "Att gästa vår 18 år gamla Pub här på Stationsgatan, som med åren har blivit Märstas krogstråk, är ett härligt sätt att lyfta vardagen. Alla krogar och restauranger i här nere i grannskapet kompletterar varandra och skapar en härlig stämning i hela området. Konkurrensen är positiv och bidrar till att stamgäster och nya gäster är glada och positiva.",
+
+                }
+            };
+
             //As our website has a hash so here if statement will detect does our website has a hash or not  
             //Define language via window hash
-            if(window.location.hash){
-                if(window.location.hash==="#swe"){
-                   //set the language, istaead of calling document.getElementById  we are calling "id"
+            if (window.location.hash) {
+                if (window.location.hash === "#swe") {
+                    //set the language, istaead of calling document.getElementById  we are calling "id"
                     home.textContent = language.swe.Home; //home is id and Home is an label for json bject
                     about.textContent = language.swe.About;
                     drinks.textContent = language.swe.Drink;
-                    chefs.textContent = language.swe.Chefs;   
-                    contact.textContent = language.swe.Contact; 
-                    bodycontent.textContent = language.swe.Bodycontent;       
+                    chefs.textContent = language.swe.Chefs;
+                    contact.textContent = language.swe.Contact;
+                    bodycontent.textContent = language.swe.Bodycontent;
 
                 }
             }
-        
-             //when we click on the anchor image, it will reload the page
+
+            //when we click on the anchor image, it will reload the page
             //define language reload onclick illiteration
 
             //dataReload.length:- detects how many elements do we have with selector and we have 2
-            for (i=0; i<= dataReload.length;i++){
-                dataReload[i].onclick = function(){
+            for (i = 0; i <= dataReload.length; i++) {
+                dataReload[i].onclick = function() {
                     location.reload(true);
                 };
             }
         </script>
-   
-</body> 
-</html>
 
+</body>
+
+</html>

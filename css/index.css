@@ -1,83 +1,100 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body {            
-    background-color:rgb(218, 145, 72); ;   
-    color:white;   /*Font color*/
-    font-size: 20px;   
-    /*overflow-x: hidden;*/ 
-    font-family: 'Flamenco', cursive,Arial, Helvetica, sans-serif;   
+
+body {
+    background-color: rgb(218, 145, 72);
+    ;
+    color: white;
+    /*Font color*/
+    font-size: 20px;
+    /*overflow-x: hidden;*/
+    font-family: 'Flamenco', cursive, Arial, Helvetica, sans-serif;
     padding: 0px;
-    }
+}
 
 .background-image {
-    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("../images/4.jpg");
-    background-color: #cccccc;    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/4.jpg");
+    background-color: #cccccc;
     height: 100%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;           
+    position: relative;
 }
 
-header {       
+header {
     color: white;
 }
+
+
 /* If the element will overflow outside of its container , it helps to fix the element at proper position.*/
-.clearfix:after{
-    content:".";
-    visibility: hidden ;
-    display: block; /*show content in 1 line*/
+
+.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    /*show content in 1 line*/
     height: 0px;
     clear: both;
 }
-.row{
-    max-width:1180; /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attrivute*/
-    margin: 0 auto; /*Aways in centre*/
+
+.row {
+    max-width: 1180;
+    /*1180 is the max, we cannot stretch after that to fix it small device it automatically fix with max attrivute*/
+    margin: 0 auto;
+    /*Aways in centre*/
 }
-.logo{
+
+.logo {
     height: 70px;
     width: auto;
     float: left;
     margin-top: 15px;
 }
-.main-nav{
-    float:left;
+
+.main-nav {
+    float: left;
     margin-top: 70px;
     padding-top: 20px;
 }
-.main-nav li{
-    display:inline-block;
-    list-style:none; /*Remove bullets*/
+
+.main-nav li {
+    display: inline-block;
+    list-style: none;
+    /*Remove bullets*/
     margin-left: 40px;
 }
 
-.main-nav li a{
-    padding: 0px,0px;
+.main-nav li a {
+    padding: 0px, 0px;
     color: #fff;
-    text-decoration: none; /*Remove underline from anchor tags*/
+    text-decoration: none;
+    /*Remove underline from anchor tags*/
     text-transform: uppercase;
-    font-size: 90%; 
+    font-size: 90%;
     font-weight: 100;
 }
-.main-nav li a:hover{
+
+.main-nav li a:hover {
     border-bottom: 2px solid rgb(236, 158, 79);
 }
 
-.main-content{
+.main-content {
     width: 56%;
     position: obsolute;
     /*border: 1px solid red;*/
-    top:50%;
-    left:10%;
-    transform: translate(30%,60%);/*place the content to the proper position*/
+    top: 50%;
+    left: 10%;
+    transform: translate(30%, 60%);
+    /*place the content to the proper position*/
     float: left;
-}       
+}
 
-h1{
+h1 {
     color: #fff;
     font-size: 150%;
     word-spacing: 5px;
@@ -87,12 +104,12 @@ h1{
     font-weight: lighter;
 }
 
-.colorchange{
+.colorchange {
     animation: colorchangeflying 1s infinite;
 }
 
-.btn{
-    display: inline-block;  
+.btn {
+    display: inline-block;
     padding: 10px 30px;
     font-weight: lighter;
     text-decoration: none;
@@ -100,42 +117,52 @@ h1{
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
-.btn-full{
+.btn-full {
     background-color: transparent;
     color: #dfa042;
     margin-right: 15px;
-    border: 1px solid  #dfa042;
+    border: 1px solid #dfa042;
 }
 
-.btn-full:hover{
+.btn-full:hover {
     background-color: white;
 }
-.btn-nav{
+
+.btn-nav {
     background-color: transparent;
-    color:#fff;
+    color: #fff;
     border: 1px solid white;
 }
-.btn-nav:hover{
-    background-color:  #dfa042;
+
+.btn-nav:hover {
+    background-color: #dfa042;
 }
 
 @keyframes colorchangeflying {
-    0%{color:rgb(255, 72, 0);}
-    25%{color: rgb(194, 191, 33)}  
-    50%{color:white}
-    100%{color: #dfa042}
-}
-marquee{
- width: 100%;
+    0% {
+        color: rgb(255, 72, 0);
+    }
+    25% {
+        color: rgb(194, 191, 33)
+    }
+    50% {
+        color: white
+    }
+    100% {
+        color: #dfa042
+    }
 }
 
-.logoimages{
-    float:right;
+marquee {
+    width: 100%;
+}
+
+.logoimages {
+    float: right;
     font-size: 15pt;
-   
 }
 
-.main-nav .current{
-    color:rgb(231, 154, 10);
+.main-nav .current {
+    color: rgb(231, 154, 10);
     font-size: 25px;
-    } 
+}

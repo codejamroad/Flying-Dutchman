@@ -1,4 +1,12 @@
+// drop.js is reponsible to handle drag n drop funtionality
+// Events functions are implemented to show data at target.
+// This is used in CART implementation showing dropped items in cart and
+// Calculate total amount of an order
+
+// Global variable storing total amount of the order
+//
 var total = 0;
+
 function allowDrop(ev) {
     ev.preventDefault(); // This makes the item accept drop actions.
 }
@@ -36,14 +44,14 @@ function drop(ev) {
     var nodeCopy = document.getElementById(data).cloneNode(true);
 
     var itemName = nodeCopy.innerHTML;
+
+    // Using Regression expression to find price of the item dropped from html script string
+    //
     var matches = itemName.match(/(\d+)/);
+
+    //Converting string to int
     price = parseInt(matches[0]);
 
-//    var htmlcode = nodeCopy.outerHTML;
-    //var update = htmlcode + '</div>' + '<div style = "float:right" /<span style="font-size: 20px;" class="price">' 
-    //+ '&nbsp;' + price + '</span><br></div>';
-
-    //nodeCopy.outerHTML = update;
     nodeCopy.id = "newId";  // We cannot use the same ID. Ideally we should generate the new ID with a
                             // random or incremental number. This is left as an exercise...
                             //
@@ -51,18 +59,6 @@ function drop(ev) {
     nodeCopy.draggable = "false"; // The new element is set as being not draggable.
 
     ev.target.appendChild(nodeCopy);
-
-    // Get the ID of the target (the order).
-    //
-    var tempid = "#" + ev.target.id;
-
-    // Get the HTML content of the order.
-    //
-    order = $(tempid).html();
-
-    // Get the prices from the order.
-    //
-    //prices = getPrices(order);
 
     // Make a total sum of all the prices.
     //
@@ -78,97 +74,6 @@ function sumTotal(price, sum)
     return sum + price;
 }
 
-//Get the list of prices from all the currentorders.
-
-// function getPrices (htmlString) {
-
-//     // We create a new jQuery object and put the HTML string into it.
-//     //
-//     var el = $( '<div></div>' );
-//     el.html(htmlString);
-
-//     // Then we can use jQuery to find all elements in this string.
-//     //
-//     return $('.price', el); // All the price elements
-// }
-
-// function getPrice(itemName, categoryInfo) {
-
-
-//     // We create a new jQuery object and put the HTML string into it.
-//     //
-//     var price = 0;
-//     str = categoryInfo.toLowerCase();
-
-//     if(str.includes("beer"))
-//     {
-//         for (let index = 0; index < collector.beer.length; index++) {
-//             const element = collector.beer[index];
-//             str = element.name; 
-//             if(str.localeCompare(itemName) == 0) 
-//             {
-//                 price = element.price;
-//             }
-//         }
-//     }
-
-//     else if(str.includes("wine"))
-//     {
-//         for (let index = 0; index < collector.wine.length; index++) {
-//             const element = collector.wine[index];
-//             str = element.name; 
-//             if(str.localeCompare(itemName) == 0)
-//             {
-//                 price = element.price;
-//             }
-//         }
-//     }
-
-//     else if(str.includes("whisky"))
-//     {
-//         for (let index = 0; index < collector.whisky.length; index++) {
-//             const element = collector.whisky[index];
-//             str = element.name;
-//             if(str.localeCompare(itemName) == 0)
-//             {
-//                 price = element.price;
-//             }
-//         }
-//     }
-
-//     else if(str.includes("spirits"))
-//     {
-//         for (let index = 0; index < collector.spirits.length; index++) {
-//             const element = collector.spirits[index];
-//             str = element.name;
-//             if(str.localeCompare(itemName) == 0)
-//             {
-//                 price = element.price;
-//             }
-//         }
-//     }
-
-//     return price;
-
-// }
-
-
-// Sum up all the prices in the order. Note that the data is still stored in an HTML string.
-//
-// function sumTotal(data) {
-
-//     // reset the total sum;
-//     //
-//     var sum = 0;
-
-//     // Go through the elements and collect the internal texts.
-//     // Each string is parsed to an integer.
-//     //
-//     for (i = 0; i < data.length; i++) {
-//         sum += parseInt(data[i].innerText);
-//     }
-//     return sum;
-// }
 // ===================================================================================================================
 // END OF FILE
 // ===================================================================================================================

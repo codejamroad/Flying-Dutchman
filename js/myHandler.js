@@ -1,3 +1,7 @@
+// MyHandler.js populates a data structure (dataContract.js dictionary -> arrays -> dictionaries) and operates on it.
+// Reads data from dataContracts and display in the UI. 
+// Handles click funtionality of menu item tabs (show and hide)
+//
 $(function () {
 
     // First we hide all menus, but the one with all courses.
@@ -43,113 +47,88 @@ $(function () {
         $("#beer").show();
     });
 
-    // Here we put the different kinds of food into the respective menus.
+    //minimum number of elements required to fetched from db for each menu items
     //
-    var data = getAllData(8);
+    var minItemsRequired = 20;
 
-    $(setCategory(data.beer)).appendTo("#beer");
-    $(setCategory(data.wine)).appendTo("#wine");
-    $(setCategory(data.spirits)).appendTo("#spirit");
-    $(setCategory(data.whisky)).appendTo("#whisky");
-});
-
-
-// ===================================================================================================================
-// The function returns all food strings (created as divs) of a certain type (given as argument).
-//
-function setCategory(menuItems) {
-
-    // The collection variable
+    //variable to control number element to show in a menu item
     //
     var itemToDisplay = 10;
-    var out = "";
-   
-    var i = 0;
-    // Go through the array and collect all the items of the desired type.
-    //
-
-        // if the item is of the desired type, then we add the HTML string to the collection variable.
-        // Otherwise we skip to the next item.
-        //
-        menuItems.forEach(myFunction);
     
-        function myFunction(item) { 
+    //Get all the data from
+    // 
+    var data = getItemsToDisplay(minItemsRequired);
 
-            if(i < itemToDisplay)
-            {
-                if(item.price != undefined)
-                {
-                    out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
-                    + '" draggable="true" ondragstart="drag(event)">' 
-                    + item.name +
-                    + '<<span style="font-size: 20px;" class="price">'
-                    + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
-                    + item.price + '</span><br></div>';
-                }
-                if(item.desc != undefined)
-                {
-                    out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' 
-                    + item.desc 
-                    +'</div></h6></font><br>';
-                }
-            i++;
-
-            }  
-        } 
-        
-    // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
+    // Here we put the different kinds of drinks into the respective menus.
     //
-    return out;
-}
+    $(getMenuitemList(data.beer, itemToDisplay)).appendTo("#beer");
+    $(getMenuitemList(data.wine, itemToDisplay)).appendTo("#wine");
+    $(getMenuitemList(data.spirits, itemToDisplay)).appendTo("#spirit");
+    $(getMenuitemList(data.whisky, itemToDisplay)).appendTo("#whisky");
+});
 
-
-function getAllData(itemToFetch) {
+function getItemsToDisplay(number) {
 
     var  dbElement= 0;
     
-    while(IsDataFilled(itemToFetch)) {
-
+    while(IsDataFilled(number)) {
+        
+        //Pre-processing string for comparision
         str = bar[dbElement].catgegory.toLowerCase();
 
+        // Cheaking if db element category consist of following sub strings
+        //
         if(str.includes("beer") || str.includes("ale"))
-        {   
+        { 
+            //Created a new dictionary of an item  
             var abeers = { 
             name : bar[dbElement].name,
             price : bar[dbElement].priceinclvat,
             desc : bar[dbElement].alcoholstrength,
             catgegory : "beer"
             };
+
+            // Pushed dictionary item to corresponding lists
             beerlist.push(abeers);
         }
         else if(str.includes("spicy spirits") || str.includes("okryddad sprit") )
         {    
+            //Created a new dictionary of an item 
             var aspirits = { 
                 name : bar[dbElement].name,
                 price : bar[dbElement].priceinclvat,
                 desc : bar[dbElement].alcoholstrength,
                 catgegory : "spirits"
                 };
+            
+            // Pushed dictionary item to corresponding lists
             spiritlist.push(aspirits);
         }
         else if(str.includes("wine") || str.includes("vin"))
-        {    
+        {
+            //Created a new dictionary of an item     
             var awines = { 
                 name : bar[dbElement].name,
                 price : bar[dbElement].priceinclvat,
                 desc : bar[dbElement].alcoholstrength,
                 catgegory : "wine"
                 };
+            
+            // Pushed dictionary item to corresponding lists
             winelist.push(awines);
         }
 
         else if(str.includes("whisky") || str.includes("whisky"))
         {  
+            //Created a new dictionary of an item 
             var awhiskys = { 
                 name : bar[dbElement].name,
                 price : bar[dbElement].priceinclvat,
                 desc : bar[dbElement].alcoholstrength,
                 catgegory : "whisky"
-                };  
+                };
+                
+            // Pushed dictionary item to corresponding lists
             whiskylist.push(awhiskys);
         }
 
@@ -160,12 +139,62 @@ function getAllData(itemToFetch) {
     return collector;
 }
 
-function IsDataFilled(itemToFetch)
+function IsDataFilled(itemsRequired)
 {
-    return (beerlist.length < itemToFetch
-        || spiritlist.length < itemToFetch 
-        || winelist.length < itemToFetch
-        || whiskylist.length < itemToFetch);
+    // Boolean check ensuring all menu item must have minimum of required items in each list. 
+    // Check will be false when all lists meet the criteria
+    // In the end some lists may have more items than items required and that is okay
+    //
+    return (beerlist.length < itemsRequired
+        || spiritlist.length < itemsRequired 
+        || winelist.length < itemsRequired
+        || whiskylist.length < itemsRequired);
+}
+
+
+// ===================================================================================================================
+// The function returns all drinks strings (created as divs) of a certain type (given as argument).
+//
+function getMenuitemList(menuItems, itemToDisplay) {
+
+    // The collection variable
+    //
+    var out = "";
+   
+    var i = 0;
+
+    menuItems.forEach(myFunction);
+
+    function myFunction(item) { 
+
+        if(i < itemToDisplay)
+        {
+            if(item.price != undefined)
+            {
+                // we add the HTML string to the collection variable and Things to display are Name and Price of item.
+                //
+                out += '<div style = "float:left" id="' + "menuitem" + item.catgegory + i 
+                + '" draggable="true" ondragstart="drag(event)">' 
+                + item.name +
+                + '<<span style="font-size: 20px;" class="price">'
+                + '&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;'
+                + item.price + '</span><br></div>';
+            }
+            if(item.desc != undefined)
+            {
+                // we add the HTML string to the collection variable and Thing to display are description of item.
+                out += '<br><font face = "Arial" Color = "Green"><h6><div style = "float:left">' 
+                + item.desc 
+                +'</div></h6></font><br>';
+            }
+        i++;
+
+        }  
+    } 
+        
+    // Once we are finished we return the resulting HTML string containing all the menu items for the desired menu.
+    //
+    return out;
 }
 
 // ===================================================================================================================

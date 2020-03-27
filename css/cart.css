@@ -137,8 +137,21 @@ h2 {
     position: absolute;
     font-size: 16px;
     /*left:10px;*/
-    bottom: 20px;
-    color: #555;
+    bottom: 60px;
+    color: #000;
+}
+
+.button {
+    position: relative;
+    background-color: rgb(148, 147, 147);
+    color: rgb(68, 67, 67);
+    padding: 5px 5px;
+    text-align: right;
+    left: 50px;
+    font-size: 12px;
+    cursor: pointer;
+    border-style: solid;
+    bottom: 70px;
 }
 
 .total {

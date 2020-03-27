@@ -61,10 +61,10 @@
             <div class="cartform">
                 <font size="4px" id="cart">Cart</font>
                 <img src="images/cart.png" width="40px" height="40px">
-                <table style="width:300px;height:auto;">
+                <table style="width:300px;height:auto;" align="left">
                     <thead>
                         <tr>
-                            <th field="name" id="name">Name</th>
+                            <th field="name" id="name" align="left">Name</th>
                             <!--<th field="quantity" id="quantity">Quantity</th>-->
                             <th field="price" id="price">Price</th>
                         </tr>
@@ -76,7 +76,10 @@
                 <div class="cartContent" id="1" ondrop="drop(event)" ondragover="allowDrop(event)" style="height: 400px; ">
                 </div>
                 <h2>Drop here to add to cart &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="checkout.html" class="btn btn-full">CHECKOUT</a></h2>
+                </h2>
+                <button class="button" type="button" onclick="checkout.html">
+                    <a href="" class="btn btn-full">CHECKOUT</a>
+                    </button>
                 <p id=sum class="total">Total: kr</p>
 
             </div>

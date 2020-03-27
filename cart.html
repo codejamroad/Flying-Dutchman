@@ -19,6 +19,11 @@
     <link href="https://fonts.googleapis.com/css?family=Flamenco&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/cart.css">
 
+    
+
+
+
+
 </head>
 
 <body>
@@ -27,7 +32,7 @@
             <div><br><img src="images/logo.png" class="logo"></div>
 
             <div id="home_id" lang="" style="float:right;">
-                <a href="home.html"> <img src="images/home2.png " width="30px" height="30px">
+                <a href="index.html"> <img src="images/home2.png " width="30px" height="30px">
                     <!--We have created here atttribute "data-reload"-->
                     <a href="#" onclick=OnLngEn()><img src="images/uk.png" width="25px" height="25px"></a>
                     <a href="#" onclick=OnLngSe()><img src="images/sweden.png" width="25px" height="25px"></a>
@@ -43,11 +48,11 @@
                 <div style="float:left;">
 
                     <ul class="main-nav animated slideInDown" id="mtabs">
-                        <li id="wines"><a href="#" id="_wine">Wine</a></li>
-                        <li id="beers"><a href="#" id="_beer">Beer</a></li>
-                        <li id="spirits"><a href="#" id="_spicy">Spicy Spirits</a></li>
-                        <li id="whiskys"><a href="#" id="_whiskey">Whiskey</a></li>
-                        <li><a href="#" id="_special">Special Drinks</a></li>
+                        <li id="wines" onclick="checklist(this);"><a href="#" id="_wine">Wine</a></li>
+                        <li id="beers" onclick="checklist(this);"><a href="#" id="_beer">Beer</a></li>
+                        <li id="spirits" onclick="checklist(this);"><a href="#" id="_spicy">Spicy Spirits</a></li>
+                        <li id="whiskys" onclick="checklist(this);"><a href="#" id="_whiskey">Whiskey</a></li>
+                        <li onclick="checklist(this);"><a href="#" id="_special">Special Drinks</a></li>
                     </ul>
                 </div>
 
